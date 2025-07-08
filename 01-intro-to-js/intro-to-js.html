@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Interactive introduction to JavaScript with detailed theory and code examples for beginners." />
+  <meta name="keywords" content="JavaScript, JS Tutorial, Introduction to JavaScript, Learn JavaScript, Web Development" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="og:title" content="Introduction to JavaScript" />
+  <meta name="og:description" content="Learn JavaScript basics with interactive examples and theory." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/01-intro-to-js/intro-to-js.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>Introduction to JavaScript</title>
+  <link rel="stylesheet" href="intro-to-js.css" />
+  <link rel="stylesheet" href="../shared/shared.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌟 Introduction to JavaScript</h1>
+      <div class="header-controls">
+        <a class="back-button" href="../index.html">← Back to Home</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="theory">
+      <h2>What is JavaScript?</h2>
+      <p>
+        JavaScript is a versatile, high-level programming language used to create interactive and dynamic content on websites. It runs in the browser and can manipulate HTML, CSS, and handle events such as clicks, form submissions, and more.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Displaying Output with JavaScript</h3>
+      <p>Click the button to display a greeting message using JavaScript.</p>
+      <button onclick="showGreeting()">Click Me</button>
+      <p id="greetingOutput"></p>
+    </section>
+
+    <section class="theory">
+      <h2>Variables in JavaScript</h2>
+      <p>
+        Variables are containers for storing data values. JavaScript uses <code>let</code>, <code>const</code>, and <code>var</code> to declare variables.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Declaring Variables</h3>
+      <button onclick="showVariables()">Show Variables</button>
+      <div id="variableOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Functions in JavaScript</h2>
+      <p>
+        Functions are blocks of code designed to perform a particular task. They are executed when "called" or "invoked".
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Creating a Function</h3>
+      <button onclick="calculateSum()">Calculate 5 + 3</button>
+      <p id="functionOutput"></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>Built for learning purposes using HTML, CSS, and JavaScript.</p>
+    </div>
+  </footer>
+
+  <script src="../shared/shared.js"></script>
+  <script src="intro-to-js.js"></script>
+</body>
+</html>
