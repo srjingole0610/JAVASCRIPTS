@@ -1,36 +1,29 @@
-// Get DOM elements
-const body = document.body;
-const heading = document.createElement('h1');
-const paragraph = document.createElement('p');
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+    const demoButton = document.getElementById('demo-button');
+    let count = 0;
 
-// Set content
-heading.textContent = 'Welcome to My Page';
-paragraph.textContent = 'This is a basic JavaScript demo page.';
+    // Theme toggle functionality
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        themeToggle.textContent = body.classList.contains('dark-mode') ? '☀️' : '🌙';
+        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark' : 'light');
+    });
 
-// Add styles
-heading.style.color = '#333';
-heading.style.textAlign = 'center';
-paragraph.style.margin = '20px';
+    // Load saved theme
+    if (localStorage.getItem('theme') === 'dark') {
+        body.classList.add('dark-mode');
+        themeToggle.textContent = '☀️';
+    }
 
-// Add elements to page
-body.appendChild(heading);
-body.appendChild(paragraph);
-
-// Add click event
-heading.addEventListener('click', () => {
-    alert('You clicked the heading!');
+    // Interactive demo button
+    demoButton.addEventListener('click', () => {
+        count++;
+        demoButton.textContent = `Click me: ${count}`;
+        demoButton.style.transform = 'scale(1.1)';
+        setTimeout(() => {
+            demoButton.style.transform = 'scale(1)';
+        }, 200);
+    });
 });
-
-// Simple counter
-let count = 0;
-const button = document.createElement('button');
-button.textContent = 'Click me: 0';
-button.style.display = 'block';
-button.style.margin = '20px auto';
-
-button.addEventListener('click', () => {
-    count++;
-    button.textContent = `Click me: ${count}`;
-});
-
-body.appendChild(button);
