@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn different ways to embed JavaScript in HTML, including inline, internal and external scripts." />
+  <meta name="keywords" content="JavaScript embedding, script tags, inline JavaScript, external JavaScript, internal JavaScript, HTML and JavaScript" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="og:title" content="Embedding JavaScript in HTML" />
+  <meta name="og:description" content="Comprehensive guide on different methods to embed JavaScript code in HTML documents." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/02-embedding-javascript/embedding-javascript.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>Embedding JavaScript</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="../shared/page-default.css">
+  <link rel="stylesheet" href="../shared/page-grid.css">
+  <link rel="stylesheet" href="embedding-javascript.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+    <h1>📌 Embedding JavaScript in HTML</h1>
+    <div class="header-controls">
+    <a class="back-button" href="../index.html">← Back to Home</a>
+     <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+     </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Theory: Overview -->
+    <section class="theory">
+      <h2>Introduction</h2>
+      <p>JavaScript can be embedded into HTML in three main ways:</p>
+      <ul>
+        <li><strong>Inline JavaScript</strong> - added directly to an HTML element using event attributes.</li>
+        <li><strong>Internal JavaScript</strong> - written inside a <code>&lt;script&gt;</code> tag in the HTML document.</li>
+        <li><strong>External JavaScript</strong> - placed in a separate `.js` file and linked using the <code>src</code> attribute.</li>
+      </ul>
+    </section>
+
+    <!-- Example: Inline -->
+    <section class="code-example">
+      <h3>👉 Inline JavaScript Example</h3>
+      <p>Click the button below to trigger inline JavaScript:</p>
+      <button onclick="inlineMessage()">Click for Inline JS</button>
+      <p id="inlineOutput" class="text-paragraph"></p>
+    </section>
+
+    <!-- Example: Internal -->
+    <section class="theory">
+      <h2>Internal JavaScript</h2>
+      <p>
+        JavaScript can be embedded inside a <code>&lt;script&gt;</code> tag in the HTML file. Although effective for small scripts, it’s better to use external scripts for clean code.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Internal JavaScript Example (from external JS file)</h3>
+      <p>Click the button to trigger an internal-style function:</p>
+      <button onclick="internalMessage()">Trigger Internal Function</button>
+      <p id="internalOutput" class="text-paragraph"></p>
+    </section>
+
+    <!-- Example: External -->
+    <section class="theory">
+      <h2>External JavaScript</h2>
+      <p>
+        External JavaScript is placed in a separate file and linked using the <code>src</code> attribute. This is the preferred and cleanest way to include scripts.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 External JavaScript Example</h3>
+      <p>Click the button to trigger a function from an external JS file:</p>
+      <button onclick="externalMessage()">Trigger External JS</button>
+      <p id="externalOutput" class="text-paragraph"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>🧠 Built to demonstrate the different ways to embed JavaScript into HTML.</p>
+  </footer>
+
+  <script src="../shared/shared.js"></script>
+  <script src="embedding-javascript.js"></script>
+</body>
+</html>
