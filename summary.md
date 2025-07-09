@@ -12,6 +12,8 @@ Whether you're a beginner or an experienced developer, use this summary to quick
 ## Table of Contents
 
 - [Introduction to JavaScript](#1-introduction-to-javascript)
+- [Embedding JavaScript in HTML](#2-embedding-javascript-in-html-script-tag)
+- [JavaScript Values and Variables](#3-javascript-values-and-variables)
 
 ## 1. Introduction to JavaScript
 
@@ -86,7 +88,7 @@ console.log(greet("World"));
 - **freeCodeCamp:** Interactive coding lessons and projects.
 - **The Odin Project:** A full-stack curriculum for web development.
 
-## 2.Embedding JavaScript in HTML (`<script>` tag)
+## 2. Embedding JavaScript in HTML (`<script>` tag)
 
 JavaScript code is integrated into HTML documents using the `<script>` tag. This tag tells the browser that the content within it, or the file it points to, is JavaScript code that needs to be executed. There are several ways to embed JavaScript:
 

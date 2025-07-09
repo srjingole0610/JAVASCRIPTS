@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.showScopeHoisting = function () {
     let output = '';
     try {
-      output += `<p><strong>var Hoisting:</strong> ${hoistedVar} (declared later, hoisted as undefined)</p>`;
+      output += `<p><strong>var Hoisting:</strong> ${hoistedVar} (accessing hoistedVar before declaration - var variables are hoisted and initialized with undefined)</p>`;
       var hoistedVar = "I am hoisted!";
       output += `<p><strong>After var declaration:</strong> ${hoistedVar}</p>`;
     } catch (e) {
