@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about values and variables in JavaScript with detailed explanations and interactive code examples." />
+  <meta name="keywords" content="JavaScript, Variables, Values, Web Development, Programming, Learn JavaScript" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" content="Values and Variables in JavaScript" />
+  <meta name="og:description" content="Master JavaScript variables and values with interactive examples and in-depth theory." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/03-variables/variables.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>Values and Variables in JavaScript</title>
+  <link rel="stylesheet" href="value-variables.css">
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="../shared/page-default.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌟 Values and Variables in JavaScript</h1>
+      <div class="header-controls">
+        <a class="back-button" href="../index.html">← Back to Home</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="theory">
+      <h2>Understanding Values in JavaScript</h2>
+      <p>
+        In JavaScript, a <strong>value</strong> is any data that can be stored, manipulated, or used in a program. Values are categorized into two main types:
+      </p>
+      <ul>
+        <li><strong>Primitive Values</strong>: Immutable data types including:
+          <ul>
+            <li><code>Number</code>: Represents numeric values (e.g., <code>42</code>, <code>3.14</code>)</li>
+            <li><code>String</code>: Represents text (e.g., <code>"Hello"</code>)</li>
+            <li><code>Boolean</code>: Represents <code>true</code> or <code>false</code></li>
+            <li><code>Undefined</code>: A variable that has not been assigned a value</li>
+            <li><code>Null</code>: Represents the absence of a value</li>
+            <li><code>Symbol</code>: Unique and immutable identifiers</li>
+            <li><code>BigInt</code>: Represents large integers beyond the Number limit</li>
+          </ul>
+        </li>
+        <li><strong>Object Values</strong>: Complex data types like objects, arrays, and functions that can hold multiple values or properties.</li>
+      </ul>
+      <p>Primitive values are immutable (cannot be changed once created), while objects are mutable (their properties can be modified).</p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Exploring Value Types</h3>
+      <p>Click the button to see different JavaScript value types.</p>
+      <button onclick="showValueTypes()">Show Value Types</button>
+      <div id="valueTypesOutput" class="output"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Variables in JavaScript</h2>
+      <p>
+        A <strong>variable</strong> is a named storage location for holding a value. JavaScript provides three ways to declare variables:
+      </p>
+      <ul>
+        <li><code>var</code>: Function-scoped, hoisted, and can be redeclared. (Older, less preferred)</li>
+        <li><code>let</code>: Block-scoped, not hoisted, and can be reassigned.</li>
+        <li><code>const</code>: Block-scoped, not hoisted, and cannot be reassigned (though object properties can be modified).</li>
+      </ul>
+      <p>
+        Variables also have <strong>scope</strong> (global, function, or block) and are affected by <strong>hoisting</strong> (where declarations are moved to the top of their scope, but not initializations).
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Variable Declaration and Reassignment</h3>
+      <p>Click to see how variables can be declared and reassigned.</p>
+      <button onclick="showVariables()">Show Variables</button>
+      <div id="variableOutput" class="output"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Type Coercion and Variables</h2>
+      <p>
+        JavaScript performs <strong>type coercion</strong>, automatically converting values between types during operations (e.g., <code>"5" + 3</code> becomes <code>"53"</code>, but <code>"5" * 3</code> becomes <code>15</code>). Understanding coercion is crucial when working with variables.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Type Coercion</h3>
+      <p>Click to see how JavaScript handles type coercion.</p>
+      <button onclick="showTypeCoercion()">Show Type Coercion</button>
+      <div id="typeCoercionOutput" class="output"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Variable Scope and Hoisting</h2>
+      <p>
+        <strong>Scope</strong> determines where a variable is accessible:
+        <ul>
+          <li><strong>Global Scope</strong>: Variables declared outside functions, accessible everywhere.</li>
+          <li><strong>Function Scope</strong>: Variables declared with <code>var</code> inside a function, accessible only within that function.</li>
+          <li><strong>Block Scope</strong>: Variables declared with <code>let</code> or <code>const</code> inside curly braces <code>{}</code>, accessible only within that block.</li>
+        </ul>
+        <p>
+          <strong>Hoisting</strong>: JavaScript moves variable declarations (but not initializations) to the top of their scope. For example, <code>var x</code> is hoisted, but <code>let</code> and <code>const</code> are not fully hoisted, leading to a "Temporal Dead Zone" if accessed before declaration.
+        </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Scope and Hoisting</h3>
+      <p>Click to see how scope and hoisting affect variables.</p>
+      <button onclick="showScopeHoisting()">Show Scope & Hoisting</button>
+      <div id="scopeHoistingOutput" class="output"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 JavaScript Full Stack Mastery. Built for learning purposes.</p>
+    </div>
+  </footer>
+
+  <script src="value-variable.js"></script>
+  <script src="../shared/shared.js"></script>
+</body>
+</html>
