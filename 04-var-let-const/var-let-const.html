@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about var, let, and const in JavaScript with detailed explanations and interactive code examples." />
+  <meta name="keywords" content="JavaScript, var, let, const, Variables, Web Development, Programming" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" content="var, let, and const in JavaScript" />
+  <meta name="og:description" content="Master JavaScript's var, let, and const with interactive examples and in-depth theory." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/04-var-let-const/var-let-const.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>var, let, and const in JavaScript</title>
+  <link rel="stylesheet" href="var-let-const.css" />
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="../shared/page-default.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌟 var, let, and const in JavaScript</h1>
+      <div class="header-controls">
+        <a class="back-button" href="../index.html">← Back to Home</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="theory">
+      <h2>Introduction to var, let, and const</h2>
+      <p>
+        In JavaScript, variables are declared using <code>var</code>, <code>let</code>, or <code>const</code>. Each has distinct behaviors regarding <strong>scope</strong>, <strong>redeclaration</strong>, <strong>reassignment</strong>, and <strong>hoisting</strong>. Understanding these differences is crucial for writing reliable and maintainable code.
+      </p>
+      <ul>
+        <li><code>var</code>: Function-scoped, allows redeclaration and reassignment, and is hoisted with an initial value of <code>undefined</code>.</li>
+        <li><code>let</code>: Block-scoped, allows reassignment but not redeclaration, and is hoisted but not initialized (causing a Temporal Dead Zone).</li>
+        <li><code>const</code>: Block-scoped, does not allow reassignment or redeclaration, but object properties can be modified. Also hoisted but not initialized.</li>
+      </ul>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Declaration and Reassignment</h3>
+      <p>Click to see how <code>var</code>, <code>let</code>, and <code>const</code> handle declaration and reassignment.</p>
+      <button onclick="showDeclaration()">Show Declaration</button>
+      <div id="declarationOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Scope Differences</h2>
+      <p>
+        <strong>Scope</strong> determines where a variable is accessible:
+      </p>
+      <ul>
+        <li><code>var</code>: Function-scoped or global if declared outside a function. Accessible throughout the function or script.</li>
+        <li><code>let</code> and <code>const</code>: Block-scoped, meaning they are only accessible within the curly braces <code>{}</code> where they are defined (e.g., inside loops or conditionals).</li>
+      </ul>
+      <p>This makes <code>let</code> and <code>const</code> more predictable and safer for managing variable scope.</p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Scope Behavior</h3>
+      <p>Click to see how scope affects <code>var</code>, <code>let</code>, and <code>const</code>.</p>
+      <button onclick="showScope()">Show Scope</button>
+      <div id="scopeOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Hoisting and Temporal Dead Zone</h2>
+      <p>
+        <strong>Hoisting</strong>: JavaScript moves variable declarations to the top of their scope during execution, but behavior differs:
+      </p>
+      <ul>
+        <li><code>var</code>: Hoisted and initialized with <code>undefined</code>, allowing access before declaration.</li>
+        <li><code>let</code> and <code>const</code>: Hoisted but not initialized, leading to a <strong>Temporal Dead Zone</strong> (TDZ) where accessing the variable before declaration throws a <code>ReferenceError</code>.</li>
+      </ul>
+      <p>The TDZ makes <code>let</code> and <code>const</code> safer by preventing accidental use before initialization.</p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Hoisting and TDZ</h3>
+      <p>Click to see how hoisting and the Temporal Dead Zone work.</p>
+      <button onclick="showHoisting()">Show Hoisting</button>
+      <div id="hoistingOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Redeclaration and Best Practices</h2>
+      <p>
+        <code>var</code> allows redeclaration within the same scope, which can lead to bugs. <code>let</code> and <code>const</code> prevent redeclaration, enforcing better coding practices.
+      </p>
+      <p>
+        <strong>Best Practices</strong>:
+        <ul>
+          <li>Use <code>const</code> by default for variables that won’t be reassigned.</li>
+          <li>Use <code>let</code> when reassignment is needed.</li>
+          <li>Avoid <code>var</code> in modern JavaScript to prevent scope and hoisting issues.</li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Redeclaration</h3>
+      <p>Click to see how redeclaration behaves with <code>var</code>, <code>let</code>, and <code>const</code>.</p>
+      <button onclick="showRedeclaration()">Show Redeclaration</button>
+      <div id="redeclarationOutput"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 JavaScript Full Stack Mastery. Built for learning purposes.</p>
+    </div>
+  </footer>
+
+  <script src="../shared/shared.js"></script>
+  <script src="var-let-const.js"></script>
+</body>
+</html>
