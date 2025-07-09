@@ -12,6 +12,8 @@ Whether you're a beginner or an experienced developer, use this summary to quick
 ## Table of Contents
 
 - [Introduction to JavaScript](#1-introduction-to-javascript)
+- [Embedding JavaScript in HTML](#2-embedding-javascript-in-html-script-tag)
+- [JavaScript Values and Variables](#3-javascript-values-and-variables)
 
 ## 1. Introduction to JavaScript
 
@@ -86,7 +88,7 @@ console.log(greet("World"));
 - **freeCodeCamp:** Interactive coding lessons and projects.
 - **The Odin Project:** A full-stack curriculum for web development.
 
-## 2.Embedding JavaScript in HTML (`<script>` tag)
+## 2. Embedding JavaScript in HTML (`<script>` tag)
 
 JavaScript code is integrated into HTML documents using the `<script>` tag. This tag tells the browser that the content within it, or the file it points to, is JavaScript code that needs to be executed. There are several ways to embed JavaScript:
 
@@ -216,3 +218,189 @@ JavaScript can also be embedded directly into HTML attributes as event handlers.
 - **Performance:** Placing `<script>` tags at the end of the `<body>` or using `defer` or `async` attributes helps improve page load performance by preventing JavaScript from blocking the rendering of HTML content.
 - **Separation of Concerns:** Keep HTML (structure), CSS (presentation), and JavaScript (behavior) in separate files for better organization and maintainability.
 - **Error Handling:** Be mindful of where your scripts are placed, especially if they manipulate the DOM. If a script tries to access an element that hasn't been parsed yet, it will result in an error.
+
+## 3. JavaScript Values and Variables
+
+In JavaScript, **values** are the fundamental pieces of data that a program works with, while **variables** are named containers used to store and manage these values. Understanding how values are represented and how variables hold them is crucial for writing any JavaScript code.
+
+### JavaScript Values (Data Types)
+
+JavaScript is a dynamically typed language, meaning you don't have to explicitly declare the data type of a variable. The type is determined automatically at runtime. JavaScript has several built-in data types:
+
+1.**Primitive Values:** These are simple, immutable data types.
+
+- **`String`**: Represents textual data. Enclosed in single quotes (`'...'`), double quotes (`"..."`), or backticks (`` `...` `` for template literals).
+
+    ```javascript
+        let greeting = "Hello, world!";
+        let name = 'Alice';
+        let message = `You are ${2025 - 2000} years old.`; // Template literal
+        console.log(greeting); // Output: "Hello, world!"
+        console.log(name); // Output: 'Alice'
+        console.log(message); // Output: "You are 25 years old."
+
+        ```
+- **`Number`**: Represents both integer and floating-point numbers.
+
+    ```javascript
+        let age = 30;
+        let price = 99.99;
+        let bigNumber = 1e6; // 1,000,000
+        
+        ```
+        
+- **`Boolean`**: Represents a logical entity and can have two values: `true` or `false`.
+
+    ```javascript
+        let isActive = true;
+        let hasPermission = false;
+        
+        ```
+        
+- **`Undefined`**: Represents a variable that has been declared but has not yet been assigned a value.
+
+    ```javascript
+        let quantity; // quantity is undefined
+        console.log(quantity); // Output: undefined
+        
+        ```
+        
+- **`Null`**: Represents the intentional absence of any object value. It's a primitive value.
+
+    ```javascript
+        let selectedItem = null; // No item selected
+        
+        ```
+        
+- **`Symbol`** (ES6): Represents a unique identifier.
+
+    ```javascript
+        const id = Symbol('uniqueId');
+        const anotherId = Symbol('uniqueId');
+        console.log(id === anotherId); // Output: false
+        
+        ```
+
+    - **`BigInt`** (ES2020): Represents whole numbers larger than `2^53 - 1`, which is the largest number JavaScript can reliably represent with the 
+        `Number` type.
+
+        ```javascript
+        const largeNumber = 9007199254740991n; // 'n' suffix makes it a BigInt
+        
+        ```
+
+2.**Non-Primitive (Reference) Value:**
+
+- **`Object`**: A complex data type that allows you to store collections of data and more complex entities. Objects are mutable and are stored by reference.
+
+- **Plain Objects**: Key-value pairs.
+
+    ```javascript
+            let person = {
+                firstName: "John",
+                lastName: "Doe",
+                age: 30
+            };
+            
+            ```
+            
+- **Arrays**: Ordered lists of values (a special type of object).
+
+    ```javascript
+            let colors = ["red", "green", "blue"];
+            let numbers = [1, 2, 3, 4, 5];
+            
+            ```
+            
+- **Functions**: Callable objects that execute a block of code.
+
+    ```javascript
+            function add(a, b) {
+                return a + b;
+            }
+            
+            ```
+            
+
+### JavaScript Variables
+
+Variables are used to store data values. Before using a variable, it must be declared. JavaScript provides three keywords for declaring variables: `var`, `let`, and `const`.
+
+1. **`var` (Legacy Declaration)**
+
+    - **Scope:** Function-scoped. If declared outside a function, it's global. If declared inside a function, it's local to that function.
+    - **Hoisting:**  `var` declarations are "hoisted" to the top of their scope, meaning you can use a `var` variable before it's declared in the code (though its value will be `undefined`).
+    - **Re-declaration:** Can be re-declared within the same scope without an error.
+    - **Re-assignment:** Can be re-assigned.
+    - **Recommendation:** Generally discouraged in modern JavaScript due to its confusing scoping rules (lack of block-scoping).
+
+    ```javascript
+    var x = 10;
+    function exampleVar() {
+        var x = 20; // Different x, function-scoped
+        console.log(x); // Output: 20
+        if (true) {
+            var y = 30; // Still function-scoped, not block-scoped
+        }
+        console.log(y); // Output: 30 (y is accessible here)
+    }
+    exampleVar();
+    console.log(x); // Output: 10
+    
+    ```
+
+2. **`let` (Modern Declaration - ES6+)**
+    - **Scope:** Block-scoped. Variables declared with `let` are only accessible within the block (`{}`) where they are defined.
+    - **Hoisting:**  `let` declarations are also hoisted, but they are in a "temporal dead zone" until their actual declaration. This means you cannot access them before they are declared in the code.
+    - **Re-declaration:** Cannot be re-declared within the same scope.
+    - **Re-assignment:** Can be re-assigned.
+    - **Recommendation:** Preferred for variables whose values might change.
+
+    ```javascript
+    let a = 10;
+    function exampleLet() {
+        let a = 20; // Different a, function-scoped
+        console.log(a); // Output: 20
+        if (true) {
+            let b = 30; // Block-scoped
+            console.log(b); // Output: 30
+        }
+        // console.log(b); // Error: b is not defined (outside its block)
+    }
+    exampleLet();
+    console.log(a); // Output: 10
+    
+    ```
+
+3. **`const` (Modern Declaration - ES6+)**
+    - **Scope:** Block-scoped, similar to `let`.
+    - **Hoisting:** Similar to `let`, in a temporal dead zone until declared.
+    - **Re-declaration:** Cannot be re-declared within the same scope.
+    - **Re-assignment:** Cannot be re-assigned _after_ its initial assignment. You must initialize a `const` variable when you declare it.
+    - **Important Note for Objects/Arrays:** While the `const` variable itself cannot be re-assigned, if it holds an object or an array, the _contents_ of that object or array _can_ be modified.
+    - **Recommendation:** Preferred for variables whose values are not expected to change, promoting immutability and making code more predictable.
+
+    ```javascript
+    const PI = 3.14159;
+    // PI = 3.14; // Error: Assignment to constant variable.
+    
+    const user = { name: "Jane", age: 25 };
+    user.age = 26; // This is allowed (modifying object content)
+    console.log(user); // Output: { name: "Jane", age: 26 }
+    
+    // user = { name: "John" }; // Error: Assignment to constant variable.
+    
+    const numbers = [1, 2, 3];
+    numbers.push(4); // This is allowed (modifying array content)
+    console.log(numbers); // Output: [1, 2, 3, 4]
+    // numbers = [10, 20]; // Error: Assignment to constant variable.
+    ```
+
+### Key Takeaways
+
+- **Values** are the data, categorized into primitive and non-primitive types.
+- **Variables** are named containers for values.
+- Use `let` for variables that will be re-assigned.
+- Use `const` for variables that should not be re-assigned (and for objects/arrays whose reference should not change).
+- Avoid `var` in new code.
+- Understanding scope (`block` vs. `function`) is crucial for avoiding bugs.
