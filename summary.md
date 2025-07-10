@@ -464,20 +464,19 @@ console.log(hoistedVar); // Output: I was hoisted
 
 `let` was introduced in ES6 (ECMAScript 2015) to provide block-scoping, offering more predictable variable behavior than `var`.
 
--   **Scope:**  `let` is **block-scoped**.
-    
-    -   A variable declared with `let` is only accessible within the block (`{}`) where it is defined. This includes `if` blocks, `for` loops, `while` loops, and function blocks.
-        
--   **Hoisting:**  `let` declarations are also hoisted, but they are placed in a "temporal dead zone" (TDZ) from the start of their block until their actual declaration line.
-    
-    -   Attempting to access a `let` variable before its declaration within its scope will result in a `ReferenceError`. This helps catch potential bugs early.
-        
--   **Re-declaration:** A `let` variable **cannot** be re-declared within the same scope. This prevents accidental overwriting of variables.
-    
--   **Re-assignment:** A `let` variable can be re-assigned to a new value at any point after its declaration.
-    
--   **Recommendation:** Preferred for variables whose values are expected to change during the execution of a program.
-    
+- **Scope:**  `let` is **block-scoped**.
+
+  - A variable declared with `let` is only accessible within the block (`{}`) where it is defined. This includes `if` blocks, `for` loops, `while` loops, and function blocks.
+
+- **Hoisting:**  `let` declarations are also hoisted, but they are placed in a "temporal dead zone" (TDZ) from the start of their block until their actual declaration line.
+
+  - Attempting to access a `let` variable before its declaration within its scope will result in a `ReferenceError`. This helps catch potential bugs early.
+
+- **Re-declaration:** A `let` variable **cannot** be re-declared within the same scope. This prevents accidental overwriting of variables.
+
+- **Re-assignment:** A `let` variable can be re-assigned to a new value at any point after its declaration.
+
+- **Recommendation:** Preferred for variables whose values are expected to change during the execution of a program.
 
 **Example:**
 
@@ -511,18 +510,17 @@ console.log(tdzVar); // Output: I am in the TDZ until here
 
 `const` was also introduced in ES6, primarily for declaring constants or variables whose values should not change after initialization.
 
--   **Scope:**  `const` is **block-scoped**, just like `let`.
-    
--   **Hoisting:** Similar to `let`, `const` declarations are hoisted but are in a temporal dead zone until their declaration. You must initialize a `const` variable at the time of its declaration.
-    
--   **Re-declaration:** A `const` variable **cannot** be re-declared within the same scope.
-    
--   **Re-assignment:** A `const` variable **cannot** be re-assigned after its initial assignment. This is its primary distinguishing feature.
-    
--   **Important Note for Objects and Arrays:** While the `const` keyword prevents re-assignment of the variable itself, it does _not_ prevent modification of the _contents_ of an object or array that the `const` variable holds. This is because `const` ensures the variable's _reference_ remains constant, not the data it points to (for non-primitive types).
-    
--   **Recommendation:** Preferred for variables whose values are not expected to change throughout the program's execution, promoting immutability and making code more predictable and easier to reason about.
-    
+- **Scope:**  `const` is **block-scoped**, just like `let`.
+
+- **Hoisting:** Similar to `let`, `const` declarations are hoisted but are in a temporal dead zone until their declaration. You must initialize a `const` variable at the time of its declaration.
+
+- **Re-declaration:** A `const` variable **cannot** be re-declared within the same scope.
+
+- **Re-assignment:** A `const` variable **cannot** be re-assigned after its initial assignment. This is its primary distinguishing feature.
+
+- **Important Note for Objects and Arrays:** While the `const` keyword prevents re-assignment of the variable itself, it does _not_ prevent modification of the _contents_ of an object or array that the `const` variable holds. This is because `const` ensures the variable's _reference_ remains constant, not the data it points to (for non-primitive types).
+
+- **Recommendation:** Preferred for variables whose values are not expected to change throughout the program's execution, promoting immutability and making code more predictable and easier to reason about.
 
 **Example:**
 
@@ -562,7 +560,8 @@ console.log(numbers); // Output: [1, 2, 3, 4]
 // numbers = [5, 6]; // Error: Assignment to constant variable.
 
 ```
-### Summary Comparison:
+
+### Summary Comparison
 
 | Feature         | `var`                          | `let`                                     | `const`                                               |
 |-----------------|--------------------------------|--------------------------------------------|--------------------------------------------------------|
@@ -892,3 +891,350 @@ myNumber = myNumber + 5; // This doesn't modify 10; it creates a new number 15
 ```
 
 Understanding primitive data types is fundamental to grasping how JavaScript manages values and memory, especially when contrasting them with non-primitive (object) types, which are mutable and passed by reference.
+
+## 6. Operators and Expressions in JavaScript
+
+In JavaScript, **operators** are special symbols or keywords that perform operations on one or more values (called **operands**) and return a result. **Expressions** are combinations of values, variables, operators, and function calls that JavaScript can evaluate to produce a single value. Essentially, operators are the building blocks that allow you to create meaningful expressions.
+
+Understanding operators and expressions is crucial for writing any functional JavaScript code, as they enable computation, comparison, logical decision-making, and more.
+
+### What is an Expression?
+
+An **expression** is any valid unit of code that resolves to a value. This means that when JavaScript encounters an expression, it evaluates it and produces a result.
+
+**Examples of Expressions:**
+
+- `10` (a literal value, which is an expression)
+- `"hello"` (a string literal)
+- `x` (a variable, which evaluates to its stored value)
+- `10 + 5` (an arithmetic expression)
+- `x > 5` (a comparison expression)
+- `myFunction()` (a function call expression)
+- `a = b + c` (an assignment expression)
+
+#### Types of Operators
+
+JavaScript provides a rich set of operators, which can be categorized based on the type of operation they perform and the number of operands they take.
+
+##### 1. Assignment Operators
+
+Assignment operators are used to assign values to variables. The most common is the simple assignment operator (`=`). There are also compound assignment operators that combine an arithmetic or bitwise operation with assignment.
+
+| Operator | Example     | Equivalent to | Description                                               |
+|----------|-------------|----------------|-----------------------------------------------------------|
+| `=`      | `x = 10`    | –              | Assigns the value of the right operand to the left operand. |
+| `+=`     | `x += 5`    | `x = x + 5`    | Adds the right operand to the left operand and assigns the result. |
+| `-=`     | `x -= 3`    | `x = x - 3`    | Subtracts the right operand from the left operand and assigns the result. |
+| `*=`     | `x *= 2`    | `x = x * 2`    | Multiplies the left operand by the right operand and assigns the result. |
+| `/=`     | `x /= 4`    | `x = x / 4`    | Divides the left operand by the right operand and assigns the result. |
+| `%=`     | `x %= 3`    | `x = x % 3`    | Assigns the remainder of the division.                    |
+| `**=`    | `x **= 2`   | `x = x ** 2`   | Assigns the result of exponentiation.                     |
+
+**Examples:**
+
+```javascript
+let a = 10;
+console.log(a); // Output: 10
+
+a += 5; // a is now 15
+console.log(a); // Output: 15
+
+a *= 2; // a is now 30
+console.log(a); // Output: 30
+
+let b = 7;
+b %= 3; // b is now 1 (remainder of 7 / 3)
+console.log(b); // Output: 1
+
+```
+
+#### 2. Arithmetic Operators
+
+Arithmetic operators perform mathematical calculations.
+
+| Operator | Description                             |
+|----------|-----------------------------------------|
+| `+`      | Addition                                |
+| `-`      | Subtraction                             |
+| `*`      | Multiplication                          |
+| `/`      | Division                                |
+| `%`      | Modulus (remainder of division)         |
+| `**`     | Exponentiation (ES2016)                 |
+| `++`     | Increment (increments operand by 1)     |
+| `--`     | Decrement (decrements operand by 1)     |
+
+**Note on `++` and `--`:**
+
+- **Prefix (`++x`, `--x`):** Increments/decrements the value _before_ using it in the expression.
+- **Postfix (`x++`, `x--`):** Increments/decrements the value _after_ using it in the expression.
+
+**Examples:**
+
+```javascript
+let num1 = 20;
+let num2 = 5;
+
+console.log(num1 + num2); // Output: 25
+console.log(num1 - num2); // Output: 15
+console.log(num1 * num2); // Output: 100
+console.log(num1 / num2); // Output: 4
+console.log(num1 % num2); // Output: 0 (20 divided by 5 has no remainder)
+console.log(2 ** 3);      // Output: 8 (2 to the power of 3)
+
+let i = 0;
+console.log(++i); // Output: 1 (i becomes 1, then used)
+console.log(i);   // Output: 1
+
+let j = 0;
+console.log(j++); // Output: 0 (j is used as 0, then becomes 1)
+console.log(j);   // Output: 1
+
+```
+
+#### 3. Comparison Operators
+
+Comparison operators compare two values and return a `boolean` (`true` or `false`) result.
+
+| Operator | Description                                                       |
+|----------|-------------------------------------------------------------------|
+| `==`     | Equal to (checks value, performs type coercion)                   |
+| `===`    | Strict equal to (checks value AND type, no type coercion)         |
+| `!=`     | Not equal to (checks value, performs type coercion)               |
+| `!==`    | Strict not equal to (checks value AND type, no type coercion)     |
+| `>`      | Greater than                                                      |
+| `<`      | Less than                                                         |
+| `>=`     | Greater than or equal to                                          |
+| `<=`     | Less than or equal to                                             |
+
+  **Important Note on `==` vs. `===`:**
+
+- `==` (loose equality) attempts to convert the operands to the same type before comparison. This can lead to unexpected results (e.g., `0 == false` is `true`).
+- `===` (strict equality) compares values without type conversion. If the types are different, it returns `false`. This is generally preferred for predictability.
+
+**Examples:**
+
+```javascript
+let x = 10;
+let y = "10";
+let z = 20;
+
+console.log(x == y);   // Output: true (value is same, type coercion happens)
+console.log(x === y);  // Output: false (value is same, but types are different)
+
+console.log(x != z);   // Output: true
+console.log(x !== y);  // Output: true
+
+console.log(x > 5);    // Output: true
+console.log(z < 15);   // Output: false
+console.log(x >= 10);  // Output: true
+console.log(z <= 20);  // Output: true
+
+```
+
+#### 4. Logical Operators
+
+Logical operators are used to combine or negate boolean expressions. They often return a boolean value, but can also return one of the operand values.
+
+| Operator | Description                                                                                      |
+|----------|--------------------------------------------------------------------------------------------------|
+| `&&`     | Logical AND (returns `true` if both operands are truthy; otherwise, returns the first falsy operand or the last operand) |
+| `||`     | Logical OR (returns `true` if at least one operand is truthy; otherwise, returns the last falsy operand) |
+| `!`      | Logical NOT (inverts the boolean value of the operand)                                           |
+
+**Short-Circuit Evaluation:**  `&&` and `||` perform "short-circuit evaluation."
+
+- For `&&`, if the first operand is falsy, the second operand is not evaluated.
+- For `||`, if the first operand is truthy, the second operand is not evaluated.
+
+**Examples:**
+
+```javascript
+let age = 25;
+let hasLicense = true;
+
+// Logical AND
+console.log(age > 18 && hasLicense); // Output: true (both conditions are true)
+console.log(age < 18 && hasLicense); // Output: false (first condition is false)
+
+// Logical OR
+console.log(age > 30 || hasLicense); // Output: true (hasLicense is true)
+console.log(age < 18 || !hasLicense); // Output: false (both conditions are false)
+
+// Logical NOT
+console.log(!hasLicense); // Output: false (inverts true)
+
+// Short-circuiting example
+let user = null;
+let userName = user && user.name; // user is null (falsy), so user.name is not accessed
+console.log(userName); // Output: null
+
+let defaultName = user || "Guest"; // user is null (falsy), so "Guest" is returned
+console.log(defaultName); // Output: "Guest"
+
+```
+
+#### 5. Bitwise Operators (Advanced)
+
+Bitwise operators perform operations on the binary representations of numbers. They are less commonly used in typical web development but are important for low-level operations or specific algorithms.
+
+| Operator | Description                          |
+|----------|--------------------------------------|
+| `&`      | Bitwise AND                          |
+| `|`      | Bitwise OR                           |
+| `^`      | Bitwise XOR                          |
+| `~`      | Bitwise NOT                          |
+| `<<`     | Left shift                           |
+| `>>`     | Sign-propagating right shift         |
+| `>>>`    | Zero-fill right shift                |
+
+**Example:**
+
+```javascript
+let num = 5;  // Binary: 0101
+let mask = 3; // Binary: 0011
+
+console.log(num & mask); // Output: 1 (Binary: 0001)
+console.log(num | mask); // Output: 7 (Binary: 0111)
+console.log(num << 1);   // Output: 10 (Binary: 1010 - shifts bits left by 1)
+
+```
+
+#### 6. String Operators
+
+The `+` operator can also be used for string concatenation.
+
+| Operator | Description                               |
+|----------|-------------------------------------------|
+| `+`      | Concatenates (joins) two or more strings. |
+
+  **Examples:**
+
+```javascript
+let greeting = "Hello";
+let name = "World";
+let message = greeting + " " + name + "!";
+console.log(message); // Output: "Hello World!"
+
+let numString = "10" + 5; // Number 5 is coerced to a string "5"
+console.log(numString);   // Output: "105"
+console.log(typeof numString); // Output: "string"
+
+```
+
+#### 7. Unary Operators
+
+Unary operators operate on a single operand.
+
+| Operator  | Description                                                               |
+|-----------|---------------------------------------------------------------------------|
+| `+`       | Unary plus (attempts to convert operand to a number)                      |
+| `-`       | Unary negation (negates the operand)                                      |
+| `typeof`  | Returns a string indicating the data type of the operand                  |
+| `delete`  | Deletes an object's property or an element from an array                  |
+| `void`    | Evaluates an expression and returns `undefined`                           |
+
+**Examples:**
+
+```javascript
+let strNum = "123";
+console.log(+strNum);       // Output: 123 (converted to number)
+console.log(typeof +strNum); // Output: "number"
+
+let val = 50;
+console.log(-val);          // Output: -50
+
+let myVar = "some text";
+console.log(typeof myVar);  // Output: "string"
+console.log(typeof 123);    // Output: "number"
+console.log(typeof true);   // Output: "boolean"
+
+let myObject = { a: 1, b: 2 };
+console.log(myObject.a);    // Output: 1
+delete myObject.a;
+console.log(myObject.a);    // Output: undefined
+
+console.log(void(1 + 2));   // Output: undefined (evaluates 1+2, but returns undefined)
+
+```
+
+#### 8.Conditional (Ternary) Operator
+
+The conditional (ternary) operator is the only JavaScript operator that takes three operands. It's a shorthand for an `if...else` statement.
+
+**Syntax:**  `condition ? expressionIfTrue : expressionIfFalse`
+
+**Examples:**
+
+```javascript
+let age = 20;
+let status = (age >= 18) ? "Adult" : "Minor";
+console.log(status); // Output: "Adult"
+
+let price = 100;
+let discount = (price > 50) ? price * 0.10 : 0;
+console.log(discount); // Output: 10
+
+```
+
+#### 9. `instanceof` Operator
+
+The `instanceof` operator checks if an object is an instance of a particular class or constructor function.
+
+**Syntax:**  `object instanceof constructor`
+
+**Examples:**
+
+```javascript
+let arr = [1, 2, 3];
+console.log(arr instanceof Array);  // Output: true
+console.log(arr instanceof Object); // Output: true (arrays are objects)
+
+let date = new Date();
+console.log(date instanceof Date);  // Output: true
+console.log(date instanceof Object); // Output: true
+
+```
+
+#### 10. `in` Operator
+
+The `in` operator checks if a specified property is in an object (either directly or inherited through the prototype chain).
+
+**Syntax:**  `propertyName in objectName`
+
+**Examples:**
+
+```javascript
+let car = { make: "Toyota", model: "Camry" };
+
+console.log("make" in car);    // Output: true
+console.log("year" in car);    // Output: false
+console.log("toString" in car); // Output: true (inherited from Object.prototype)
+
+let fruits = ["apple", "banana", "cherry"];
+console.log(0 in fruits);     // Output: true (index 0 exists)
+console.log(3 in fruits);     // Output: false (index 3 does not exist)
+console.log("length" in fruits); // Output: true (arrays have a 'length' property)
+
+```
+
+#### Operator Precedence and Associativity
+
+When multiple operators are present in an expression, their evaluation order is determined by:
+
+1. **Precedence:** Operators with higher precedence are evaluated before operators with lower precedence (e.g., multiplication `*` has higher precedence than addition `+`).
+2. **Associativity:** If operators have the same precedence, associativity (left-to-right or right-to-left) determines the order of evaluation.
+
+You can use parentheses `()` to override the default operator precedence.
+
+**Example:**
+
+```javascript
+let result = 5 + 3 * 2; // Multiplication (3 * 2 = 6) happens first, then addition (5 + 6 = 11)
+console.log(result); // Output: 11
+
+let resultWithParentheses = (5 + 3) * 2; // Addition (5 + 3 = 8) happens first, then multiplication (8 * 2 = 16)
+console.log(resultWithParentheses); // Output: 16
+
+```
+
+Understanding operators and expressions is foundational to writing effective and predictable JavaScript code. They are the tools you use to manipulate data and control the flow of your programs.
