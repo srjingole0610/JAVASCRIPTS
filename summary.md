@@ -1038,9 +1038,7 @@ Logical operators are used to combine or negate boolean expressions. They often 
 | Operator | Description                                                                                      |
 |----------|--------------------------------------------------------------------------------------------------|
 | `&&`     | Logical AND (returns `true` if both operands are truthy; otherwise, returns the first falsy operand or the last operand) |
-| Operator | Description |
-|----------|-------------|
-| `\|\|`   | Logical OR (returns `true` if at least one operand is truthy; otherwise, returns the last falsy operand) |
+| `||`     | Logical OR (returns `true` if at least one operand is truthy; otherwise, returns the last falsy operand) |
 | `!`      | Logical NOT (inverts the boolean value of the operand)                                           |
 
 **Short-Circuit Evaluation:**  `&&` and `||` perform "short-circuit evaluation."
