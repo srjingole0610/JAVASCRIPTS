@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about operators and expressions in JavaScript with detailed explanations and interactive code examples." />
+  <meta name="keywords" content="JavaScript, Operators, Expressions, Arithmetic, Comparison, Logical, Web Development, Programming" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" content="Operators and Expressions in JavaScript" />
+  <meta name="og:description" content="Master JavaScript operators and expressions with interactive examples and in-depth theory." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/06-operators-expressions/operators-expressions.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>Operators and Expressions in JavaScript</title>
+  <link rel="stylesheet" href="../shared/base.css">
+  <link rel="stylesheet" href="../shared/page-default.css">
+  <link rel="stylesheet" href="operators-expressions.css" />
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌟 Operators and Expressions in JavaScript</h1>
+      <div class="header-controls">
+        <a class="back-button" href="../index.html">← Back to Home</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="theory">
+      <h2>Introduction to Operators and Expressions</h2>
+      <p>
+        In JavaScript, <strong>operators</strong> are special symbols or keywords used to perform operations on operands (values or variables). An <strong>expression</strong> is a combination of values, variables, and operators that evaluates to a single value. Operators are categorized by their functionality, and their behavior is influenced by <strong>operator precedence</strong> and <strong>associativity</strong>.
+      </p>
+      <p>
+        Common operator types include:
+        <ul>
+          <li><strong>Arithmetic</strong>: Perform mathematical operations (e.g., <code>+</code>, <code>-</code>).</li>
+          <li><strong>Comparison</strong>: Compare values (e.g., <code>==</code>, <code>===</code>).</li>
+          <li><strong>Logical</strong>: Combine or invert boolean expressions (e.g., <code>&&</code>, <code>||</code>).</li>
+          <li><strong>Assignment</strong>: Assign values to variables (e.g., <code>=</code>, <code>+=</code>).</li>
+          <li><strong>Other</strong>: Includes bitwise, ternary, and special operators like <code>typeof</code>.</li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Arithmetic Operators</h3>
+      <p>Click to see how arithmetic operators work with numbers.</p>
+      <button onclick="showArithmetic()">Show Arithmetic</button>
+      <div id="arithmeticOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Comparison Operators and Type Coercion</h2>
+      <p>
+        <strong>Comparison operators</strong> compare two values and return a boolean (<code>true</code> or <code>false</code>). JavaScript supports loose equality (<code>==</code>, which performs type coercion) and strict equality (<code>===</code>, which checks value and type).
+      </p>
+      <p>
+        <strong>Type coercion</strong> can lead to unexpected results, as JavaScript converts operands to a common type before comparison (e.g., <code>"5" == 5</code> is <code>true</code>, but <code>"5" === 5</code> is <code>false</code>).
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Comparison Operators</h3>
+      <p>Click to see how comparison operators and type coercion work.</p>
+      <button onclick="showComparison()">Show Comparison</button>
+      <div id="comparisonOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Logical Operators</h2>
+      <p>
+        <strong>Logical operators</strong> are used to combine or manipulate boolean values:
+        <ul>
+          <li><code>&&</code> (AND): Returns <code>true</code> if both operands are true.</li>
+          <li><code>||</code> (OR): Returns <code>true</code> if at least one operand is true.</li>
+          <li><code>!</code> (NOT): Inverts the boolean value.</li>
+        </ul>
+        Logical operators also support short-circuit evaluation, where the second operand is evaluated only if necessary.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Logical Operators</h3>
+      <p>Click to see how logical operators combine conditions.</p>
+      <button onclick="showLogical()">Show Logical</button>
+      <div id="logicalOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Assignment and Other Operators</h2>
+      <p>
+        <strong>Assignment operators</strong> assign values to variables (e.g., <code>=</code>, <code>+=</code>). Other operators include:
+        <ul>
+          <li><strong>Ternary Operator</strong> (<code>condition ? expr1 : expr2</code>): A concise conditional expression.</li>
+          <li><strong>typeof</strong>: Returns the type of a value.</li>
+          <li><strong>Bitwise Operators</strong>: Operate on binary representations (e.g., <code>&</code>, <code>|</code>).</li>
+        </ul>
+        Operator precedence determines the order of operations in complex expressions (e.g., <code>*</code> has higher precedence than <code>+</code>).
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Assignment and Ternary Operators</h3>
+      <p>Click to see how assignment and ternary operators work.</p>
+      <button onclick="showAssignmentTernary()">Show Assignment & Ternary</button>
+      <div id="assignmentTernaryOutput"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 JavaScript Full Stack Mastery. Built for learning purposes.</p>
+    </div>
+  </footer>
+
+  <script src="../shared/shared.js"></script>
+  <script src="operators-expressions.js"></script>
+</body>
+</html>
