@@ -405,8 +405,7 @@ Variables are used to store data values. Before using a variable, it must be dec
 - Avoid `var` in new code.
 - Understanding scope (`block` vs. `function`) is crucial for avoiding bugs.
 
-
-##  4. JavaScript Variable Declarations: `var`, `let`, and `const`
+## 4. JavaScript Variable Declarations: `var`, `let`, and `const`
 
 In JavaScript, variables are used to store data values. The way you declare a variable significantly impacts its **scope**, **hoisting behavior**, and whether it can be **re-declared** or **re-assigned**. Modern JavaScript (ES6 and later) introduced `let` and `const` to address some of the complexities and potential pitfalls associated with the older `var` keyword.
 
@@ -414,24 +413,18 @@ In JavaScript, variables are used to store data values. The way you declare a va
 
 `var` was the only way to declare variables in JavaScript before ES6. While still functional, it has certain characteristics that make it less predictable and prone to errors in larger codebases, leading to its general discouragement in modern development.
 
--   **Scope:**  `var` is **function-scoped**.
-    
-    -   If declared inside a function, it's local to that function and not accessible outside it.
-        
-    -   If declared outside any function, it's global and accessible throughout the entire script.
-        
-    -   Crucially, `var` does _not_ respect block scope (e.g., `if` blocks, `for` loops).
-        
--   **Hoisting:**  `var` declarations are "hoisted" to the top of their containing function or global scope during the compilation phase. This means the declaration is processed before the code execution.
-    
-    -   You can use a `var` variable before its physical declaration in the code. However, its value will be `undefined` until the line where it's assigned a value is executed.
-        
--   **Re-declaration:** A `var` variable can be re-declared within the same scope without causing an error. This can lead to accidental overwriting of variables.
-    
--   **Re-assignment:** A `var` variable can be re-assigned to a new value at any point after its declaration.
-    
--   **Recommendation:** Generally **discouraged** in modern JavaScript due to its confusing scoping rules and the potential for unexpected behavior, especially with hoisting and re-declaration.
-    
+1. **Scope:**  `var` is **function-scoped**.
+
+    - If declared inside a function, it's local to that function and not accessible outside it.
+    - If declared outside any function, it's global and accessible throughout the entire script.
+    - Crucially, `var` does _not_ respect block scope (e.g., `if` blocks, `for` loops).
+
+2. **Hoisting:**  `var` declarations are "hoisted" to the top of their containing function or global scope during the compilation phase. This means the declaration is processed before the code execution.
+
+    - You can use a `var` variable before its physical declaration in the code. However, its value will be `undefined` until the line where it's assigned a value is executed.
+    - **Re-declaration:** A `var` variable can be re-declared within the same scope without causing an error. This can lead to accidental overwriting of variables.
+    - **Re-assignment:** A `var` variable can be re-assigned to a new value at any point after its declaration.
+    - **Recommendation:** Generally **discouraged** in modern JavaScript due to its confusing scoping rules and the potential for unexpected behavior, especially with hoisting and re-declaration.
 
 **Example:**
 
@@ -641,10 +634,8 @@ The `number` type represents both integer and floating-point numbers. JavaScript
 
 **Characteristics:**
 
--   Supports standard arithmetic operations.
-    
--   Special numeric values: `Infinity` (positive infinity), `-Infinity` (negative infinity), and `NaN` (Not-a-Number). `NaN` results from invalid mathematical operations (e.g., `0 / 0`).
-    
+- Supports standard arithmetic operations.
+- Special numeric values: `Infinity` (positive infinity), `-Infinity` (negative infinity), and `NaN` (Not-a-Number). `NaN` results from invalid mathematical operations (e.g., `0 / 0`).
 
 **Examples:**
 
@@ -680,10 +671,8 @@ console.log(typeof result3); // Output: "number" (NaN is still a number type)
 
 **Characteristics:**
 
--   Created by appending `n` to an integer literal or by calling the `BigInt()` constructor.
-    
--   Cannot be mixed with `number` types in arithmetic operations directly. You must convert one to the other explicitly.
-    
+- Created by appending `n` to an integer literal or by calling the `BigInt()` constructor.
+- Cannot be mixed with `number` types in arithmetic operations directly. You must convert one to the other explicitly.
 
 **Examples:**
 
@@ -722,29 +711,19 @@ The `boolean` type represents a logical entity and can have only two values: `tr
 
 **Characteristics:**
 
--   Used in conditional statements (`if`, `else if`, `else`), loops (`for`, `while`), and logical operations (`&&`, `||`, `!`).
-    
--   Many values can be implicitly converted to booleans in a "truthy" or "falsy" context.
-    
+- Used in conditional statements (`if`, `else if`, `else`), loops (`for`, `while`), and logical operations (`&&`, `||`, `!`).
+- Many values can be implicitly converted to booleans in a "truthy" or "falsy" context.
 
 **Falsy Values:**
 
--   `false`
-    
--   `0` (number zero)
-    
--   `-0` (negative zero)
-    
--   `0n` (BigInt zero)
-    
--   `""` (empty string)
-    
--   `null`
-    
--   `undefined`
-    
--   `NaN`
-    
+- `false
+- `0` (number zero)
+- `-0` (negative zero)
+- `0n` (BigInt zero)
+- `""` (empty string)
+- `null`
+- `undefined`
+- `NaN`
 
 All other values are considered "truthy."
 
@@ -782,18 +761,15 @@ if ({}) { // Empty object is truthy
 
 ```
 
-###  5. `undefined`
+### 5. `undefined`
 
 The `undefined` type signifies that a variable has been declared but has not yet been assigned a value. It's also the default return value for functions that don't explicitly return anything.
 
 **Characteristics:**
 
--   Automatically assigned to newly declared variables that are not initialized.
-    
--   A function that doesn't have a `return` statement explicitly returns `undefined`.
-    
--   Accessing a non-existent object property also yields `undefined`.
-    
+- Automatically assigned to newly declared variables that are not initialized.
+- A function that doesn't have a `return` statement explicitly returns `undefined`.
+- Accessing a non-existent object property also yields `undefined`.
 
 **Examples:**
 
@@ -818,18 +794,15 @@ console.log(myVariable === undefined); // Output: true
 
 ```
 
-###  6. `symbol`
+### 6. `symbol`
 
 The `symbol` type (introduced in ES6/ES2015) is a unique and immutable data type that can be used as the key of an object property. Each `Symbol` value is unique, even if created with the same description.
 
 **Characteristics:**
 
--   Created using the `Symbol()` constructor (not `new Symbol()`).
-    
--   Primarily used to create unique object property keys to avoid name collisions, especially when extending objects or working with third-party code.
-    
--   Symbols are not enumerable by `for...in` loops or `Object.keys()`, `Object.values()`, `Object.entries()`. They can be found using `Object.getOwnPropertySymbols()`.
-    
+- Created using the `Symbol()` constructor (not `new Symbol()`).
+- Primarily used to create unique object property keys to avoid name collisions, especially when extending objects or working with third-party code.
+- Symbols are not enumerable by `for...in` loops or `Object.keys()`, `Object.values()`, `Object.entries()`. They can be found using `Object.getOwnPropertySymbols()`.
 
 **Examples:**
 
@@ -867,18 +840,15 @@ console.log(Object.getOwnPropertySymbols(user)); // Output: [Symbol(id), Symbol(
 
 ```
 
-## 7. `null`
+### 7. `null`
 
 The `null` type represents the intentional absence of any object value. It is a primitive value.
 
 **Characteristics:**
 
--   It's a "placeholder" for "no value" or "nothing."
-    
--   It's often used to explicitly indicate that a variable currently holds no meaningful object reference.
-    
--   A long-standing quirk in JavaScript is that `typeof null` returns `"object"`. This is a historical bug and does not mean `null` is an object.
-    
+- It's a "placeholder" for "no value" or "nothing."
+- It's often used to explicitly indicate that a variable currently holds no meaningful object reference.
+- A long-standing quirk in JavaScript is that `typeof null` returns `"object"`. This is a historical bug and does not mean `null` is an object.
 
 **Examples:**
 
@@ -904,7 +874,7 @@ console.log(a === b); // Output: false (strict equality, different types)
 
 ```
 
-###  Immutability of Primitives
+### Immutability of Primitives
 
 A key concept for primitive types is their **immutability**. This means that the value itself cannot be changed after it's created. When you perform an operation that seems to modify a primitive, you are actually creating a _new_ primitive value.
 

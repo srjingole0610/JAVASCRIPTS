@@ -4,7 +4,7 @@
   padding: 1.5rem;
   background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
   border-radius: var(--radius);
-  font-family: verdana, sans-serif;
+  font-family: var(--font-family-code);
   font-size: 1rem;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
   transition: all 0.3s ease;
