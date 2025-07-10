@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about JavaScript primitive data types with detailed explanations and interactive code examples." />
+  <meta name="keywords" content="JavaScript, Primitive Data Types, Number, String, Boolean, Undefined, Null, Symbol, BigInt, Web Development" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" content="Primitive Data Types in JavaScript" />
+  <meta name="og:description" content="Master JavaScript's primitive data types with interactive examples and in-depth theory." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/02-variables/primitive-data-types.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>Primitive Data Types in JavaScript</title>
+  <link rel="stylesheet" href="primitive-data-types.css" />
+  <link rel="stylesheet" href="../shared/base.css" />
+  <link rel="stylesheet" href="../shared/page-default.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌟 Primitive Data Types in JavaScript</h1>
+      <div class="header-controls">
+        <a class="back-button" href="../index.html">← Back to Home</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="theory">
+      <h2>Introduction to Primitive Data Types</h2>
+      <p>
+        In JavaScript, <strong>primitive data types</strong> are the basic building blocks of data. They are immutable (cannot be changed once created) and passed by value. JavaScript has seven primitive data types:
+      </p>
+      <ul>
+        <li><code>Number</code>: Represents both integers and floating-point numbers (e.g., <code>42</code>, <code>3.14</code>).</li>
+        <li><code>String</code>: Represents sequences of characters (e.g., <code>"Hello"</code>).</li>
+        <li><code>Boolean</code>: Represents <code>true</code> or <code>false</code>.</li>
+        <li><code>Undefined</code>: Represents a variable that has been declared but not assigned a value.</li>
+        <li><code>Null</code>: Represents the intentional absence of any value.</li>
+        <li><code>Symbol</code>: Represents unique and immutable identifiers, often used as object property keys.</li>
+        <li><code>BigInt</code>: Represents integers with arbitrary precision (e.g., <code>12345678901234567890n</code>).</li>
+      </ul>
+      <p>Unlike objects, primitives are immutable, meaning their values cannot be modified after creation (though variables holding them can be reassigned).</p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Exploring Primitive Types</h3>
+      <p>Click to see examples of all primitive data types and their <code>typeof</code> values.</p>
+      <button onclick="showPrimitiveTypes()">Show Primitive Types</button>
+      <div id="primitiveTypesOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Number and BigInt</h2>
+      <p>
+        The <code>Number</code> type represents both integers and floating-point numbers, but it has precision limits for very large numbers. <code>BigInt</code> was introduced to handle integers of arbitrary length, useful for calculations requiring high precision.
+      </p>
+      <p>
+        Common operations with <code>Number</code> include arithmetic (<code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>), while <code>BigInt</code> requires special operators (e.g., <code>n</code> suffix for literals).
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Number vs. BigInt</h3>
+      <p>Click to see how <code>Number</code> and <code>BigInt</code> behave in calculations.</p>
+      <button onclick="showNumberBigInt()">Show Number & BigInt</button>
+      <div id="numberBigIntOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>String and Type Coercion</h2>
+      <p>
+        The <code>String</code> type represents text and supports operations like concatenation and methods like <code>.toUpperCase()</code>. JavaScript’s <strong>type coercion</strong> often converts primitives to strings or numbers in operations, which can lead to unexpected results (e.g., <code>"5" + 3</code> yields <code>"53"</code>).
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: String Operations and Coercion</h3>
+      <p>Click to explore string operations and type coercion.</p>
+      <button onclick="showStringCoercion()">Show String & Coercion</button>
+      <div id="stringCoercionOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Boolean, Undefined, Null, and Symbol</h2>
+      <p>
+        <code>Boolean</code> represents logical values (<code>true</code>/<code>false</code>). <code>Undefined</code> indicates an unassigned variable, while <code>Null</code> denotes the absence of a value. <code>Symbol</code> provides unique identifiers, often used for object keys to avoid naming conflicts.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Boolean, Undefined, Null, Symbol</h3>
+      <p>Click to explore these primitive types and their behaviors.</p>
+      <button onclick="showOtherPrimitives()">Show Other Primitives</button>
+      <div id="otherPrimitivesOutput"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 JavaScript Full Stack Mastery. Built for learning purposes.</p>
+    </div>
+  </footer>
+  <script src="../shared/shared.js"></script>
+  <script src="primitive-data-types.js"></script>
+</body>
+</html>

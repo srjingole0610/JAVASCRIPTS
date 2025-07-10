@@ -281,13 +281,13 @@ JavaScript is a dynamically typed language, meaning you don't have to explicitly
         
         ```
 
-    - **`BigInt`** (ES2020): Represents whole numbers larger than `2^53 - 1`, which is the largest number JavaScript can reliably represent with the 
-        `Number` type.
+- **`BigInt`** (ES2020): Represents whole numbers larger than `2^53 - 1`, which is the largest number JavaScript can reliably represent with the `Number` type.
 
-        ```javascript
-        const largeNumber = 9007199254740991n; // 'n' suffix makes it a BigInt
-        
-        ```
+    ```javascript
+        const largeNumber = 9007199254740991n; // 'n' suffix makes it a BigInt  
+        console.log(largeNumber); // Output: 9007199254740991n
+
+    ```
 
 2.**Non-Primitive (Reference) Value:**
 
@@ -579,3 +579,346 @@ console.log(numbers); // Output: [1, 2, 3, 4]
 | **Re-assignment**  | Yes                         | Yes                                        | No (for primitive values; allowed for objects/arrays)  |
 | **Initialization** | Optional                   | Optional                                   | Required                                               |
 | **Best Practice**  | Avoid in new code           | Use when value changes                     | Use when value is constant                             |
+
+## 5.  Primitive Data Types in JavaScript
+
+JavaScript categorizes data into two main types: **primitive** and **non-primitive (or object)**. Primitive data types are fundamental, immutable values that are not objects and have no methods. When you assign a primitive value to a variable, you're directly storing that value.
+
+There are seven primitive data types in JavaScript:
+
+1. `string`
+2. `number`
+3. `bigint`
+4. `boolean`
+5. `undefined`
+6. `symbol`
+7. `null`
+
+Let's explore each one in detail with examples.
+
+### 1. `string`
+
+A `string` represents a sequence of characters, such as text. Strings are immutable, meaning once a string is created, its content cannot be changed. Any operation that appears to modify a string actually creates a new string.
+
+**Characteristics:**
+
+- Enclosed in single quotes (`'...'`), double quotes (`"..."`), or backticks (`` `...` ``).
+- Backticks allow for template literals, which support embedded expressions (interpolation) and multi-line strings.
+
+**Examples:**
+
+```javascript
+// Single quotes
+let firstName = 'John';
+console.log(typeof firstName); // Output: "string"
+
+// Double quotes
+let lastName = "Doe";
+console.log(typeof lastName);  // Output: "string"
+
+// Template literals (backticks)
+let greeting = `Hello, ${firstName} ${lastName}!`;
+console.log(greeting); // Output: "Hello, John Doe!"
+
+let multiLineString = `This is a
+multi-line
+string.`;
+console.log(multiLineString);
+
+// Immutability example
+let originalString = "hello";
+originalString.toUpperCase(); // This does NOT change originalString
+console.log(originalString); // Output: "hello"
+
+let newString = originalString.toUpperCase();
+console.log(newString);     // Output: "HELLO"
+
+```
+
+### 2. `number`
+
+The `number` type represents both integer and floating-point numbers. JavaScript uses a 64-bit floating-point format (IEEE 754 standard).
+
+**Characteristics:**
+
+-   Supports standard arithmetic operations.
+    
+-   Special numeric values: `Infinity` (positive infinity), `-Infinity` (negative infinity), and `NaN` (Not-a-Number). `NaN` results from invalid mathematical operations (e.g., `0 / 0`).
+    
+
+**Examples:**
+
+```javascript
+// Integer
+let age = 30;
+console.log(typeof age); // Output: "number"
+
+// Floating-point number
+let price = 19.99;
+console.log(typeof price); // Output: "number"
+
+// Arithmetic operations
+let sum = age + price;
+console.log(sum); // Output: 49.99
+
+// Special numeric values
+let result1 = 10 / 0;
+console.log(result1); // Output: Infinity
+
+let result2 = -10 / 0;
+console.log(result2); // Output: -Infinity
+
+let result3 = "hello" / 2;
+console.log(result3); // Output: NaN
+console.log(typeof result3); // Output: "number" (NaN is still a number type)
+
+```
+
+### 3. `bigint`
+
+`bigint` is a relatively new primitive type (introduced in ES2020) that can represent whole numbers larger than 253−1 (the maximum safe integer for `number` type) or smaller than −(253−1).
+
+**Characteristics:**
+
+-   Created by appending `n` to an integer literal or by calling the `BigInt()` constructor.
+    
+-   Cannot be mixed with `number` types in arithmetic operations directly. You must convert one to the other explicitly.
+    
+
+**Examples:**
+
+```javascript
+// Creating a BigInt
+let largeNumber = 9007199254740991n; // Appending 'n'
+console.log(typeof largeNumber); // Output: "bigint"
+
+let evenLargerNumber = BigInt("9007199254740991234567890");
+console.log(evenLargerNumber); // Output: 9007199254740991234567890n
+
+// Regular number vs BigInt
+let maxSafeInteger = Number.MAX_SAFE_INTEGER;
+console.log(maxSafeInteger); // Output: 9007199254740991
+
+let beyondSafe = maxSafeInteger + 1;
+console.log(beyondSafe); // Output: 9007199254740992 (accurate)
+
+let beyondSafePlusOne = maxSafeInteger + 2;
+console.log(beyondSafePlusOne); // Output: 9007199254740992 (inaccurate due to precision limits)
+
+let correctBeyondSafePlusOne = BigInt(maxSafeInteger) + 2n;
+console.log(correctBeyondSafePlusOne); // Output: 9007199254740993n (accurate)
+
+// Cannot mix BigInt and Number directly
+// let mixedSum = largeNumber + 10; // Throws TypeError: Cannot mix BigInt and other types
+
+let convertedSum = largeNumber + BigInt(10);
+console.log(convertedSum); // Output: 9007199254741001n
+
+```
+
+### 4. `boolean`
+
+The `boolean` type represents a logical entity and can have only two values: `true` or `false`. It is fundamental for conditional logic.
+
+**Characteristics:**
+
+-   Used in conditional statements (`if`, `else if`, `else`), loops (`for`, `while`), and logical operations (`&&`, `||`, `!`).
+    
+-   Many values can be implicitly converted to booleans in a "truthy" or "falsy" context.
+    
+
+**Falsy Values:**
+
+-   `false`
+    
+-   `0` (number zero)
+    
+-   `-0` (negative zero)
+    
+-   `0n` (BigInt zero)
+    
+-   `""` (empty string)
+    
+-   `null`
+    
+-   `undefined`
+    
+-   `NaN`
+    
+
+All other values are considered "truthy."
+
+**Examples:**
+
+```javascript
+let isActive = true;
+console.log(typeof isActive); // Output: "boolean"
+
+let hasPermission = false;
+console.log(typeof hasPermission); // Output: "boolean"
+
+if (isActive) {
+    console.log("User is active.");
+} else {
+    console.log("User is inactive.");
+}
+
+// Truthy and Falsy examples
+if ("hello") { // "hello" is truthy
+    console.log("This will run.");
+}
+
+if (0) { // 0 is falsy
+    console.log("This will NOT run.");
+}
+
+if ([]) { // Empty array is truthy (even though it's empty)
+    console.log("Empty array is truthy.");
+}
+
+if ({}) { // Empty object is truthy
+    console.log("Empty object is truthy.");
+}
+
+```
+
+###  5. `undefined`
+
+The `undefined` type signifies that a variable has been declared but has not yet been assigned a value. It's also the default return value for functions that don't explicitly return anything.
+
+**Characteristics:**
+
+-   Automatically assigned to newly declared variables that are not initialized.
+    
+-   A function that doesn't have a `return` statement explicitly returns `undefined`.
+    
+-   Accessing a non-existent object property also yields `undefined`.
+    
+
+**Examples:**
+
+```javascript
+let myVariable; // Declared but not initialized
+console.log(myVariable); // Output: undefined
+console.log(typeof myVariable); // Output: "undefined"
+
+function doNothing() {
+    // No return statement
+}
+let result = doNothing();
+console.log(result); // Output: undefined
+
+let myObject = {
+    name: "Alice"
+};
+console.log(myObject.age); // Output: undefined (property 'age' does not exist)
+
+// Comparing with undefined
+console.log(myVariable === undefined); // Output: true
+
+```
+
+###  6. `symbol`
+
+The `symbol` type (introduced in ES6/ES2015) is a unique and immutable data type that can be used as the key of an object property. Each `Symbol` value is unique, even if created with the same description.
+
+**Characteristics:**
+
+-   Created using the `Symbol()` constructor (not `new Symbol()`).
+    
+-   Primarily used to create unique object property keys to avoid name collisions, especially when extending objects or working with third-party code.
+    
+-   Symbols are not enumerable by `for...in` loops or `Object.keys()`, `Object.values()`, `Object.entries()`. They can be found using `Object.getOwnPropertySymbols()`.
+    
+
+**Examples:**
+
+```javascript
+// Creating Symbols
+const id1 = Symbol('id');
+const id2 = Symbol('id');
+
+console.log(id1);        // Output: Symbol(id)
+console.log(id2);        // Output: Symbol(id)
+console.log(id1 === id2); // Output: false (they are unique)
+console.log(typeof id1); // Output: "symbol"
+
+// Using Symbols as object keys
+let user = {
+    name: "Bob",
+    [id1]: 123
+};
+
+user[id2] = 456; // This creates a new property with a different Symbol key
+
+console.log(user);
+// Output: { name: 'Bob', [Symbol(id)]: 123, [Symbol(id)]: 456 }
+
+console.log(user[id1]); // Output: 123
+console.log(user[id2]); // Output: 456
+
+// Symbols are not enumerated by standard methods
+for (let key in user) {
+    console.log(key); // Output: name
+}
+
+console.log(Object.keys(user)); // Output: ["name"]
+console.log(Object.getOwnPropertySymbols(user)); // Output: [Symbol(id), Symbol(id)]
+
+```
+
+## 7. `null`
+
+The `null` type represents the intentional absence of any object value. It is a primitive value.
+
+**Characteristics:**
+
+-   It's a "placeholder" for "no value" or "nothing."
+    
+-   It's often used to explicitly indicate that a variable currently holds no meaningful object reference.
+    
+-   A long-standing quirk in JavaScript is that `typeof null` returns `"object"`. This is a historical bug and does not mean `null` is an object.
+    
+
+**Examples:**
+
+```javascript
+let emptyValue = null;
+console.log(emptyValue); // Output: null
+console.log(typeof emptyValue); // Output: "object" (historical quirk, not an actual object)
+
+let userProfile = {
+    name: "Charlie",
+    email: "charlie@example.com",
+    phone: null // Explicitly indicating no phone number
+};
+
+console.log(userProfile.phone); // Output: null
+
+// Difference between null and undefined
+let a;
+let b = null;
+
+console.log(a == b);  // Output: true (loose equality, null and undefined are considered equal)
+console.log(a === b); // Output: false (strict equality, different types)
+
+```
+
+###  Immutability of Primitives
+
+A key concept for primitive types is their **immutability**. This means that the value itself cannot be changed after it's created. When you perform an operation that seems to modify a primitive, you are actually creating a _new_ primitive value.
+
+**Example:**
+
+```javascript
+let myString = "hello";
+myString = myString + " world"; // This doesn't modify "hello"; it creates a new string "hello world"
+                               // and assigns it to myString.
+
+let myNumber = 10;
+myNumber = myNumber + 5; // This doesn't modify 10; it creates a new number 15
+                         // and assigns it to myNumber.
+
+```
+
+Understanding primitive data types is fundamental to grasping how JavaScript manages values and memory, especially when contrasting them with non-primitive (object) types, which are mutable and passed by reference.
