@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about the ternary operator in JavaScript with detailed explanations and interactive code examples." />
+  <meta name="keywords" content="JavaScript, Ternary Operator, Conditional Statements, Web Development, Programming" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" content="Ternary Operator in JavaScript" />
+  <meta name="og:description" content="Master the JavaScript ternary operator with interactive examples and in-depth theory." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/07-conditional-expressions/07-02-ternary-operator/ternary-operator.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>Ternary Operator in JavaScript</title>
+  <link rel="stylesheet" href="ternary-operator.css">
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="../../shared/page-default.css">
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌟 Ternary Operator in JavaScript</h1>
+      <div class="header-controls">
+        <a class="back-button" href="../conditional-expressions.html">← Back to Conditional Expressions</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="theory">
+      <h2>Introduction to the Ternary Operator</h2>
+      <p>
+        In JavaScript, the <strong>ternary operator</strong> is a concise way to write conditional expressions. It is the only operator that takes three operands: a condition, a value if the condition is true, and a value if the condition is false. The syntax is:
+      </p>
+      <pre><code>condition ? expressionIfTrue : expressionIfFalse</code></pre>
+      <p>
+        The ternary operator is often used as a shorthand for simple <code>if-else</code> statements, making code more compact but potentially less readable if overused.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Basic Ternary Operator</h3>
+      <p>Click to see the code and result of a basic ternary operator evaluating a condition.</p>
+      <pre><code id="basicTernaryCode"></code></pre>
+      <button onclick="showBasicTernary()">Show Basic Ternary</button>
+      <div id="basicTernaryOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Ternary vs. if-else</h2>
+      <p>
+        The ternary operator is a compact alternative to <code>if-else</code> for simple conditions. It’s ideal for assigning values or returning results based on a single condition. However, for complex logic or multiple statements, <code>if-else</code> is clearer.
+      </p>
+      <p>
+        Example comparison:
+        <ul>
+          <li><code>if-else</code>: <code>if (age >= 18) { status = "Adult"; } else { status = "Minor"; }</code></li>
+          <li>Ternary: <code>status = age >= 18 ? "Adult" : "Minor";</code></li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Ternary vs. if-else</h3>
+      <p>Click to see the code and result comparing a ternary operator to an equivalent <code>if-else</code>.</p>
+      <pre><code id="ternaryVsIfElseCode"></code></pre>
+      <button onclick="showTernaryVsIfElse()">Show Ternary vs. if-else</button>
+      <div id="ternaryVsIfElseOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Nested and Chained Ternary Operators</h2>
+      <p>
+        The ternary operator can be <strong>nested</strong> or <strong>chained</strong> to handle multiple conditions, similar to <code>else if</code>. However, nesting too deeply can make code hard to read. A chained ternary looks like:
+      </p>
+      <pre><code>condition1 ? value1 : condition2 ? value2 : value3</code></pre>
+      <p>
+        Use sparingly and ensure parentheses for clarity in complex cases.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Chained Ternary Operator</h3>
+      <p>Click to see the code and result of a chained ternary operator for multiple conditions.</p>
+      <pre><code id="chainedTernaryCode"></code></pre>
+      <button onclick="showChainedTernary()">Show Chained Ternary</button>
+      <div id="chainedTernaryOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Best Practices and Limitations</h2>
+      <p>
+        <strong>Best Practices</strong>:
+        <ul>
+          <li>Use the ternary operator for simple, single-expression conditions.</li>
+          <li>Avoid deep nesting; use <code>if-else</code> for complex logic.</li>
+          <li>Use parentheses to clarify precedence in chained ternaries.</li>
+          <li>Ensure readability by keeping expressions short and clear.</li>
+        </ul>
+      </p>
+      <p>
+        <strong>Limitations</strong>: The ternary operator cannot execute multiple statements (e.g., loops or function calls with side effects) and should return a value.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Ternary with Logical Operators</h3>
+      <p>Click to see the code and result of a ternary operator combined with logical operators.</p>
+      <pre><code id="ternaryLogicalCode"></code></pre>
+      <button onclick="showTernaryLogical()">Show Ternary with Logical</button>
+      <div id="ternaryLogicalOutput"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 JavaScript Full Stack Mastery. Built for learning purposes.</p>
+    </div>
+  </footer>
+
+  <script src="../../shared/shared.js"></script>
+  <script src="ternary-operator.js"></script>
+</body>
+</html>

@@ -1238,3 +1238,520 @@ console.log(resultWithParentheses); // Output: 16
 ```
 
 Understanding operators and expressions is foundational to writing effective and predictable JavaScript code. They are the tools you use to manipulate data and control the flow of your programs.
+
+## 7. Conditional Expressions
+
+### 7.1 If-Else Statements in JavaScript
+
+Conditional statements are fundamental control flow structures in JavaScript that allow you to execute different blocks of code based on whether a specified condition evaluates to `true` or `false`. The `if-else` statement is the most common way to implement conditional logic.
+
+#### 1. The `if` Statement
+
+The `if` statement executes a block of code if a specified condition is `true`.
+
+**Syntax:**
+
+```javascript
+if (condition) {
+    // Code to be executed if the condition is true
+}
+
+```
+
+**Explanation:**
+
+- `condition`: An expression that evaluates to a boolean (`true` or `false`) value. If the expression is not a boolean, JavaScript will implicitly convert it to one (truthy/falsy).
+- The code inside the curly braces `{}` (the "if block") will only run if the `condition` is `true`.
+
+**Examples:**
+
+```javascript
+let temperature = 25;
+
+if (temperature > 20) {
+    console.log("It's a warm day!");
+}
+// Output: It's a warm day!
+
+let isLoggedIn = true;
+
+if (isLoggedIn) {
+    console.log("Welcome back, user!");
+}
+// Output: Welcome back, user!
+
+let score = 75;
+if (score >= 70) {
+    console.log("You passed the test.");
+}
+// Output: You passed the test.
+
+```
+
+#### 2. The `else` Statement
+
+The `else` statement provides an alternative block of code to execute if the `if` condition evaluates to `false`.
+
+**Syntax:**
+
+```javascript
+if (condition) {
+    // Code to be executed if the condition is true
+} else {
+    // Code to be executed if the condition is false
+}
+
+```
+
+**Explanation:**
+
+- If the `condition` in the `if` statement is `true`, the `if` block executes.
+- If the `condition` is `false`, the `else` block executes. Only one of these blocks will ever run.
+
+**Examples:**
+
+```javascript
+let hour = 10;
+
+if (hour < 12) {
+    console.log("Good morning!");
+} else {
+    console.log("Good afternoon!");
+}
+// Output: Good morning! (since 10 < 12 is true)
+
+let age = 16;
+
+if (age >= 18) {
+    console.log("You are old enough to vote.");
+} else {
+    console.log("You are not yet old enough to vote.");
+}
+// Output: You are not yet old enough to vote. (since 16 >= 18 is false)
+
+```
+
+#### 3. The `else if` Statement
+
+The `else if` statement allows you to test multiple conditions sequentially. If the initial `if` condition is `false`, JavaScript moves to the `else if` condition. You can have multiple `else if` blocks.
+
+**Syntax:**
+
+```javascript
+if (condition1) {
+    // Code to be executed if condition1 is true
+} else if (condition2) {
+    // Code to be executed if condition1 is false AND condition2 is true
+} else if (condition3) {
+    // Code to be executed if condition1 and condition2 are false AND condition3 is true
+} else {
+    // Code to be executed if none of the above conditions are true
+}
+
+```
+
+**Explanation:**
+
+- JavaScript evaluates conditions from top to bottom.
+- The first `if` or `else if` block whose condition evaluates to `true` will execute, and then the entire `if-else if-else` structure is exited.
+- The final `else` block is optional and acts as a catch-all if none of the preceding `if` or `else if` conditions are met.
+
+**Examples:**
+
+```javascript
+let grade = 85;
+
+if (grade >= 90) {
+    console.log("Grade: A");
+} else if (grade >= 80) {
+    console.log("Grade: B");
+} else if (grade >= 70) {
+    console.log("Grade: C");
+} else if (grade >= 60) {
+    console.log("Grade: D");
+} else {
+    console.log("Grade: F");
+}
+// Output: Grade: B (since 85 >= 90 is false, but 85 >= 80 is true)
+
+let day = "Wednesday";
+
+if (day === "Saturday" || day === "Sunday") {
+    console.log("It's the weekend!");
+} else if (day === "Wednesday") {
+    console.log("It's hump day!");
+} else {
+    console.log("It's a weekday.");
+}
+// Output: It's hump day!
+
+```
+
+#### 4. Nested `if-else` Statements
+
+You can nest `if-else` statements inside other `if-else` blocks to handle more complex conditional logic.
+
+**Example:**
+
+```javascript
+let userRole = "admin";
+let isActiveUser = true;
+
+if (userRole === "admin") {
+    if (isActiveUser) {
+        console.log("Admin access granted.");
+    } else {
+        console.log("Admin account is inactive.");
+    }
+} else if (userRole === "editor") {
+    console.log("Editor access granted.");
+} else {
+    console.log("Guest access.");
+}
+// Output: Admin access granted.
+
+```
+
+#### Omitting Curly Braces (Single Statement)
+
+If an `if`, `else if`, or `else` block contains only a single statement, you can optionally omit the curly braces. However, it's generally recommended to always use curly braces for clarity and to prevent potential bugs when adding more statements later.
+
+**Example (not recommended practice):**
+
+```javascript
+let value = 10;
+
+if (value > 5)
+    console.log("Value is greater than 5."); // Single statement, no braces
+else
+    console.log("Value is 5 or less.");
+
+```
+
+#### Best Practices for `if-else`
+
+- **Use curly braces:** Always use curly braces `{}` for `if`, `else if`, and `else` blocks, even for single statements, to improve readability and prevent errors.
+- **Indent consistently:** Use consistent indentation to clearly show the structure of your conditional blocks.
+- **Keep conditions clear:** Make your conditions as clear and concise as possible.
+- **Avoid deep nesting:** Too many nested `if-else` statements can make code hard to read and maintain. Consider refactoring with early returns, `switch` statements, or logical operators if nesting becomes excessive.
+- **Use strict equality (`===`):** Prefer `===` over `==` to avoid unexpected type coercion issues.
+
+Understanding and effectively using `if-else` statements is fundamental to controlling the flow of execution in your JavaScript programs, allowing them to make decisions and respond dynamically to different conditions.
+
+### 7.2 Ternary Operator in JavaScript
+
+The **ternary operator** (also known as the **conditional operator**) is JavaScript's only operator that takes three operands. It provides a concise way to write conditional expressions, often serving as a shorthand for simple `if-else` statements.
+
+#### Syntax
+
+The syntax of the ternary operator is as follows:
+
+```javascript
+condition ? expressionIfTrue : expressionIfFalse;
+
+```
+
+**Explanation:**
+
+- `condition`: An expression that evaluates to a boolean (`true` or `false`) value.
+- `expressionIfTrue`: The value or expression that will be returned if the `condition` is `true`.
+- `expressionIfFalse`: The value or expression that will be returned if the `condition` is `false`.
+
+The operator evaluates the `condition`. If it's `true`, it returns the value of `expressionIfTrue`. If it's `false`, it returns the value of `expressionIfFalse`.
+
+#### How it Works (and why it's called "Ternary")
+
+The term "ternary" refers to the fact that the operator requires **three** operands. Most operators are either unary (like `!`, `typeof`, `++`) taking one operand, or binary (like `+`, `-`, `==`) taking two operands.
+
+The ternary operator is an **expression**, which means it always produces a value. This is a key difference from an `if-else`  _statement_, which performs an action but doesn't necessarily produce a value itself (though the blocks within it can contain expressions that do).
+
+#### Examples
+
+##### Basic Usage (Simple `if-else` replacement)
+
+```javascript
+let age = 20;
+let status;
+
+// Using if-else statement
+if (age >= 18) {
+    status = "Adult";
+} else {
+    status = "Minor";
+}
+console.log(status); // Output: Adult
+
+// Using ternary operator
+let statusTernary = (age >= 18) ? "Adult" : "Minor";
+console.log(statusTernary); // Output: Adult
+
+let temperature = 15;
+let weatherMessage = (temperature > 20) ? "It's warm!" : "It's cool.";
+console.log(weatherMessage); // Output: It's cool.
+
+```
+
+#### Assigning Values Based on Condition
+
+```javascript
+let isLoggedOut = false;
+let buttonText = isLoggedOut ? "Log In" : "Log Out";
+console.log(buttonText); // Output: Log Out
+
+let stock = 0;
+let message = (stock > 0) ? "In Stock" : "Out of Stock";
+console.log(message); // Output: Out of Stock
+
+```
+
+#### Returning Values from Functions
+
+The ternary operator is often used within `return` statements for concise function logic.
+
+```javascript
+function getMax(a, b) {
+    return (a > b) ? a : b;
+}
+console.log(getMax(10, 5));  // Output: 10
+console.log(getMax(3, 12));  // Output: 12
+
+function getGreeting(isMorning) {
+    return isMorning ? "Good morning!" : "Good evening!";
+}
+console.log(getGreeting(true));  // Output: Good morning!
+console.log(getGreeting(false)); // Output: Good evening!
+
+```
+
+#### Chaining Ternary Operators (Simulating `else if`)
+
+While possible, chaining ternary operators can quickly become unreadable and is generally discouraged for complex conditions. For multiple conditions, `if-else if-else` or `switch` statements are usually clearer.
+
+```javascript
+let score = 75;
+
+// Chained ternary (less readable for multiple conditions)
+let grade = (score >= 90) ? "A" :
+            (score >= 80) ? "B" :
+            (score >= 70) ? "C" :
+            (score >= 60) ? "D" : "F";
+console.log(grade); // Output: B
+
+// Equivalent if-else if-else (more readable)
+if (score >= 90) {
+    grade = "A";
+} else if (score >= 80) {
+    grade = "B";
+} else if (score >= 70) {
+    grade = "C";
+} else if (score >= 60) {
+    grade = "D";
+} else {
+    grade = "F";
+}
+console.log(grade); // Output: B
+
+```
+
+#### Using Ternary Operator in JSX (React)
+
+The ternary operator is particularly popular in front-end frameworks like React for conditionally rendering elements within JSX.
+
+```javascript
+// Example in a React-like context (conceptual, not runnable pure JS)
+/*
+function UserStatus({ isLoggedIn }) {
+  return (
+    <div>
+      {isLoggedIn ? (
+        <p>Welcome, User!</p>
+      ) : (
+        <button>Login</button>
+      )}
+    </div>
+  );
+}
+*/
+
+```
+
+#### Best Practices
+
+- **Simplicity is Key:** Use the ternary operator for simple, single-line conditional assignments or returns where an `if-else` statement would be unnecessarily verbose.
+- **Readability Over Conciseness:** If the condition or the expressions become complex, or if you have more than two outcomes, prefer `if-else if-else` statements or `switch` statements for better readability.
+- **Avoid Nesting/Chaining:** Deeply nested or long chained ternary operators are hard to debug and understand.
+- **Parentheses for Clarity:** Use parentheses around the `condition` if it involves multiple logical or comparison operators to ensure correct evaluation order.
+- **Side Effects:** Be mindful of side effects. While the expressions can contain operations with side effects, it's generally cleaner to keep the expressions simple values or function calls that return values.
+
+The ternary operator is a powerful tool for writing more compact and expressive JavaScript code, especially for straightforward conditional logic.
+
+### 7.3 Switch Statement in JavaScript
+
+The `switch` statement is a control flow statement that allows you to execute different blocks of code based on the value of a single expression. It provides an alternative to long `if-else if-else` chains when you have many possible execution paths determined by a single variable or expression.
+
+#### Syntax
+
+The basic syntax of the `switch` statement is as follows:
+
+```javascript
+switch (expression) {
+    case value1:
+        // Code to execute if expression === value1
+        break; // Important: Exits the switch statement
+    case value2:
+        // Code to execute if expression === value2
+        break;
+    case valueN:
+        // Code to execute if expression === valueN
+        break;
+    default:
+        // Code to execute if expression doesn't match any case
+        // (Optional)
+}
+
+```
+
+**Explanation:**
+
+- `expression`: The value or variable whose value will be compared against the `case` values. This expression is evaluated once.
+- `case valueN`: Each `case` defines a specific value to compare against the `expression`. The comparison is a strict equality (`===`) check.
+- `break`: The `break` keyword is crucial. It terminates the `switch` statement, preventing "fall-through" to subsequent `case` blocks. Without `break`, execution would continue to the next `case` until a `break` is encountered or the end of the `switch` block is reached.
+- `default`: The `default` keyword is optional. If none of the `case` values match the `expression`, the code inside the `default` block will be executed. It's similar to the final `else` block in an `if-else if-else` chain.
+
+#### How it Works
+
+1.The `expression` inside the `switch` parentheses is evaluated once.
+2.The result of the `expression` is then compared strictly (`===`) with the `value` of each `case` clause.
+3.If a match is found, the code block associated with that `case` is executed.
+4.Execution continues until a `break` statement is encountered, which exits the `switch` block.
+5.If no `case` matches the `expression` and a `default` clause is present, the code inside the `default` block is executed.
+6.If no `case` matches and there is no `default` clause, no code within the `switch` statement is executed.
+
+#### Examples
+
+##### Basic Usage with `break`
+
+```javascript
+let dayOfWeek = 3; // 1 for Monday, 2 for Tuesday, etc.
+
+switch (dayOfWeek) {
+    case 1:
+        console.log("It's Monday.");
+        break;
+    case 2:
+        console.log("It's Tuesday.");
+        break;
+    case 3:
+        console.log("It's Wednesday.");
+        break;
+    case 4:
+        console.log("It's Thursday.");
+        break;
+    case 5:
+        console.log("It's Friday.");
+        break;
+    case 6:
+        console.log("It's Saturday.");
+        break;
+    case 7:
+        console.log("It's Sunday.");
+        break;
+    default:
+        console.log("Invalid day number.");
+}
+// Output: It's Wednesday.
+
+```
+
+##### Using `default`
+
+```javascript
+let fruit = "apple";
+
+switch (fruit) {
+    case "banana":
+        console.log("This is a banana.");
+        break;
+    case "orange":
+        console.log("This is an orange.");
+        break;
+    default:
+        console.log("I don't know this fruit.");
+}
+// Output: I don't know this fruit.
+
+```
+
+##### Fall-through (Omitting `break`)
+
+Omitting `break` statements causes "fall-through," where execution continues into the next `case` block. This can be useful for grouping multiple cases that should execute the same code.
+
+```javascript
+let month = "January";
+
+switch (month) {
+    case "December":
+    case "January":
+    case "February":
+        console.log("It's Winter.");
+        break;
+    case "March":
+    case "April":
+    case "May":
+        console.log("It's Spring.");
+        break;
+    default:
+        console.log("Season unknown.");
+}
+// Output: It's Winter. (January falls through to the Winter block)
+
+```
+
+##### Multiple Statements per Case
+
+Each `case` block can contain multiple statements.
+
+```javascript
+let command = "start";
+let statusMessage = "";
+
+switch (command) {
+    case "start":
+        statusMessage = "Application is starting...";
+        console.log("Initializing services.");
+        break;
+    case "stop":
+        statusMessage = "Application is stopping...";
+        console.log("Shutting down services.");
+        break;
+    default:
+        statusMessage = "Unknown command.";
+}
+console.log(statusMessage);
+// Output:
+// Initializing services.
+// Application is starting...
+
+```
+
+#### When to Use `switch` vs. `if-else if-else`
+
+- **`switch` is generally preferred when:**
+- You are comparing a single expression against multiple distinct, constant values.
+- The comparisons are based on strict equality (`===`).
+- You want to group multiple cases that share the same code logic (using fall-through).
+- It can make the code more readable and organized than a long `if-else if-else` chain.
+- **`if-else if-else` is generally preferred when:**
+- You need to check a range of values (e.g., `if (age > 18 && age < 65)`).
+- You need to check complex conditions involving logical operators (`&&`, `||`, `!`).
+- The conditions involve different variables or expressions. 
+
+#### Best Practices
+
+- **Always use `break`:** Unless you specifically intend for fall-through behavior, always include a `break` statement at the end of each `case` block to prevent unintended execution of subsequent cases.
+- **Include a `default`:** It's good practice to include a `default` case to handle unexpected values for the `expression`, making your code more robust.
+- **Keep `case` values simple:** The `case` values should be simple, constant expressions. Complex expressions or variable comparisons are better suited for `if-else if-else`.
+- **Avoid complex logic within `case` blocks:** If a `case` block becomes too large or complex, consider extracting that logic into a separate function to maintain readability.
+- **Consistent Indentation:** Maintain consistent indentation for clarity.
+
+The `switch` statement is a valuable tool for managing conditional logic, especially when dealing with a fixed set of possible values for a single variable or expression.
