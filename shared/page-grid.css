@@ -107,11 +107,8 @@ body.dark-mode .card ul li a {
   transform: translateX(5px);
 }
 
-body.dark-mode .card ul li a:hover{
-  color: #ffffff;
-}
-
-body.dark-mode .card-link:hover{
+body.dark-mode .card ul li a:hover,
+body.dark-mode .card-link:hover {
   color: #ffffff;
 }
 

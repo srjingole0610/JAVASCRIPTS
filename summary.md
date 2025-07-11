@@ -1589,7 +1589,7 @@ The ternary operator is a powerful tool for writing more compact and expressive 
 
 The `switch` statement is a control flow statement that allows you to execute different blocks of code based on the value of a single expression. It provides an alternative to long `if-else if-else` chains when you have many possible execution paths determined by a single variable or expression.
 
-#### Syntax
+#### Switch Syntax
 
 The basic syntax of the `switch` statement is as follows:
 
@@ -1620,14 +1620,14 @@ switch (expression) {
 
 #### How it Works
 
-1.The `expression` inside the `switch` parentheses is evaluated once.
-2.The result of the `expression` is then compared strictly (`===`) with the `value` of each `case` clause.
-3.If a match is found, the code block associated with that `case` is executed.
-4.Execution continues until a `break` statement is encountered, which exits the `switch` block.
-5.If no `case` matches the `expression` and a `default` clause is present, the code inside the `default` block is executed.
-6.If no `case` matches and there is no `default` clause, no code within the `switch` statement is executed.
+1. The `expression` inside the `switch` parentheses is evaluated once.
+2. The result of the `expression` is then compared strictly (`===`) with the `value` of each `case` clause.
+3. If a match is found, the code block associated with that `case` is executed.
+4. If a `break` statement is not encountered, the execution will continue to the next `case` block without checking conditions. This is known as "fall-through."
+5. Execution continues until a `break` statement is encountered, which exits the `switch` block.
+6. If no `case` matches the `expression` and a `default` clause is present, the code inside the `default` block is executed.
 
-#### Examples
+#### Swtich Examples
 
 ##### Basic Usage with `break`
 
@@ -1744,9 +1744,9 @@ console.log(statusMessage);
 - **`if-else if-else` is generally preferred when:**
 - You need to check a range of values (e.g., `if (age > 18 && age < 65)`).
 - You need to check complex conditions involving logical operators (`&&`, `||`, `!`).
-- The conditions involve different variables or expressions. 
+- The conditions involve different variables or expressions.
 
-#### Best Practices
+#### Switch Best Practices
 
 - **Always use `break`:** Unless you specifically intend for fall-through behavior, always include a `break` statement at the end of each `case` block to prevent unintended execution of subsequent cases.
 - **Include a `default`:** It's good practice to include a `default` case to handle unexpected values for the `expression`, making your code more robust.
