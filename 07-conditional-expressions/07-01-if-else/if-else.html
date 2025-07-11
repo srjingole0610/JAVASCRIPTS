@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about if-else statements in JavaScript with detailed explanations and interactive code examples." />
+  <meta name="keywords" content="JavaScript, if-else, Conditional Statements, Web Development, Programming" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" content="if-else Statements in JavaScript" />
+  <meta name="og:description" content="Master JavaScript if-else statements with interactive examples and in-depth theory." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/07-conditional-expressions/07-01-if-else/if-else.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>if-else Statements in JavaScript</title>
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="../../shared/page-default.css">
+  <link rel="stylesheet" href="../../shared/code-output.css">
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌟 if-else Statements in JavaScript</h1>
+      <div class="header-controls">
+        <a class="back-button" href="../conditional-expressions.html">← Back to Conditional Expressions</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="theory">
+      <h2>Introduction to if-else Statements</h2>
+      <p>
+        In JavaScript, <strong>if-else statements</strong> are used to control the flow of a program by executing different blocks of code based on conditions. A condition is an expression that evaluates to <code>true</code> or <code>false</code>. The basic syntax is:
+      </p>
+      <pre><code>if (condition) {
+  // Code to execute if condition is true
+} else {
+  // Code to execute if condition is false
+}</code></pre>
+      <p>
+        You can also chain multiple conditions using <code>else if</code> to test additional cases. If-else statements are fundamental for decision-making in programming.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Basic if-else</h3>
+      <p>Click to see the code and result of a basic <code>if-else</code> statement evaluating a condition.</p>
+      <pre><code id="basicIfElseCode"></code></pre>
+      <button onclick="showBasicIfElse()">Show Basic if-else</button>
+      <div id="basicIfElseOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Using else if and Logical Operators</h2>
+      <p>
+        The <code>else if</code> clause allows testing multiple conditions sequentially. Logical operators (<code>&&</code>, <code>||</code>, <code>!</code>) can combine conditions for complex logic:
+        <ul>
+          <li><code>&&</code>: Both conditions must be true.</li>
+          <li><code>||</code>: At least one condition must be true.</li>
+          <li><code>!</code>: Inverts the condition’s truthiness.</li>
+        </ul>
+      </p>
+      <p>
+        Conditions often use comparison operators (e.g., <code>===</code>, <code>></code>, <code><</code>) to evaluate values.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: else if and Logical Operators</h3>
+      <p>Click to see the code and result of <code>else if</code> with logical operators.</p>
+      <pre><code id="elseIfLogicalCode"></code></pre>
+      <button onclick="showElseIfLogical()">Show else if & Logical</button>
+      <div id="elseIfLogicalOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Nested if-else Statements</h2>
+      <p>
+        <strong>Nested if-else statements</strong> involve placing an <code>if-else</code> block inside another. This allows for more complex decision trees but can reduce readability if overused. Best practice is to keep nesting shallow or use alternative structures like <code>switch</code> or early returns.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Nested if-else</h3>
+      <p>Click to see the code and result of nested <code>if-else</code> statements handling multiple conditions.</p>
+      <pre><code id="nestedIfElseCode"></code></pre>
+      <button onclick="showNestedIfElse()">Show Nested if-else</button>
+      <div id="nestedIfElseOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Best Practices and Truthy/Falsy Values</h2>
+      <p>
+        JavaScript evaluates conditions based on <strong>truthy</strong> and <strong>falsy</strong> values. Falsy values include <code>false</code>, <code>0</code>, <code>""</code>, <code>null</code>, <code>undefined</code>, and <code>NaN</code>. All other values are truthy.
+      </p>
+      <p>
+        <strong>Best Practices</strong>:
+        <ul>
+          <li>Use <code>===</code> for strict equality to avoid type coercion.</li>
+          <li>Keep conditions clear and avoid deep nesting.</li>
+          <li>Use meaningful variable names for readability.</li>
+          <li>Consider ternary operators or <code>switch</code> for simple cases.</li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Truthy and Falsy Values</h3>
+      <p>Click to see the code and result of how truthy and falsy values affect <code>if-else</code> conditions.</p>
+      <pre><code id="truthyFalsyCode"></code></pre>
+      <button onclick="showTruthyFalsy()">Show Truthy & Falsy</button>
+      <div id="truthyFalsyOutput"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 JavaScript Full Stack Mastery. Built for learning purposes.</p>
+    </div>
+  </footer>
+
+  <script src="../../shared/shared.js"></script>
+  <script src="if-else.js"></script>
+</body>
+</html>

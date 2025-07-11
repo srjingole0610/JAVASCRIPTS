@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about the switch statement in JavaScript with detailed explanations and interactive code examples." />
+  <meta name="keywords" content="JavaScript, Switch Statement, Conditional Statements, Web Development, Programming" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" content="Switch Statement in JavaScript" />
+  <meta name="og:description" content="Master the JavaScript switch statement with interactive examples and in-depth theory." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/07-conditional-expressions/07-03-switch/switch.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>Switch Statement in JavaScript</title>
+  <link rel="stylesheet" href="../../shared/code-output.css" />
+  <link rel="stylesheet" href="../../shared/base.css">
+  <link rel="stylesheet" href="../../shared/page-default.css">
+  <link rel="icon" href="../../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌟 Switch Statement in JavaScript</h1>
+      <div class="header-controls">
+        <a class="back-button" href="../conditional-expressions.html">← Back to Conditional Expressions</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="theory">
+      <h2>Introduction to the Switch Statement</h2>
+      <p>
+        In JavaScript, the <strong>switch statement</strong> is used to execute one of many code blocks based on the value of an expression. It’s an alternative to multiple <code>if-else</code> statements, especially when comparing a single value against multiple possible matches. The syntax is:
+      </p>
+      <pre><code>switch (expression) {
+  case value1:
+    // Code to execute if expression === value1
+    break;
+  case value2:
+    // Code to execute if expression === value2
+    break;
+  default:
+    // Code to execute if no cases match
+}</code></pre>
+      <p>
+        The <code>break</code> statement exits the switch block, and the <code>default</code> case runs if no other cases match.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Basic Switch Statement</h3>
+      <p>Click to see the code and result of a basic <code>switch</code> statement evaluating a day of the week.</p>
+      <pre><code id="basicSwitchCode"></code></pre>
+      <button onclick="showBasicSwitch()">Show Basic Switch</button>
+      <div id="basicSwitchOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Switch vs. if-else</h2>
+      <p>
+        The <code>switch</code> statement is ideal for comparing a single expression against multiple values using strict equality (<code>===</code>). It’s more readable than a long chain of <code>if-else</code> statements for such cases. However, <code>if-else</code> is better for complex conditions involving ranges or logical operators.
+      </p>
+      <p>
+        Example comparison:
+        <ul>
+          <li><code>if-else</code>: <code>if (day === "Monday") { ... } else if (day === "Tuesday") { ... }</code></li>
+          <li>Switch: <code>switch (day) { case "Monday": ... break; case "Tuesday": ... break; }</code></li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Switch vs. if-else</h3>
+      <p>Click to see the code and result comparing a <code>switch</code> statement to an equivalent <code>if-else</code>.</p>
+      <pre><code id="switchVsIfElseCode"></code></pre>
+      <button onclick="showSwitchVsIfElse()">Show Switch vs. if-else</button>
+      <div id="switchVsIfElseOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Fall-Through and Default Case</h2>
+      <p>
+        Without a <code>break</code> statement, a <code>switch</code> case will "fall through" to the next case, executing its code as well. This can be intentional but is often a source of bugs. The <code>default</code> case handles values that don’t match any <code>case</code>.
+      </p>
+      <p>
+        Example of fall-through:
+        <pre><code>switch (value) {
+  case 1:
+  case 2:
+    // Executes for both value === 1 and value === 2
+    break;
+}</code></pre>
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Fall-Through Behavior</h3>
+      <p>Click to see the code and result of a <code>switch</code> statement with fall-through behavior.</p>
+      <pre><code id="fallThroughCode"></code></pre>
+      <button onclick="showFallThrough()">Show Fall-Through</button>
+      <div id="fallThroughOutput"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Best Practices and Limitations</h2>
+      <p>
+        <strong>Best Practices</strong>:
+        <ul>
+          <li>Always include <code>break</code> unless fall-through is intentional.</li>
+          <li>Use <code>default</code> to handle unexpected values.</li>
+          <li>Keep case values simple (e.g., literals or constants).</li>
+          <li>Use <code>switch</code> for discrete value comparisons, not ranges.</li>
+        </ul>
+      </p>
+      <p>
+        <strong>Limitations</strong>: The <code>switch</code> statement uses strict equality (<code>===</code>) and cannot handle complex conditions or ranges directly. For such cases, use <code>if-else</code>.
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Switch with Default Case</h3>
+      <p>Click to see the code and result of a <code>switch</code> statement with a <code>default</code> case.</p>
+      <pre><code id="defaultCaseCode"></code></pre>
+      <button onclick="showDefaultCase()">Show Default Case</button>
+      <div id="defaultCaseOutput"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 JavaScript Full Stack Mastery. Built for learning purposes.</p>
+    </div>
+  </footer>
+
+  <script src="../../shared/shared.js"></script>
+  <script src="switch.js"></script>
+</body>
+</html>

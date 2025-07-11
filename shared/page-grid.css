@@ -21,6 +21,10 @@
 }
 
 .card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
   background: #ffffff;
   padding: 20px;
   border-radius: 10px;
@@ -67,7 +71,7 @@ body.dark-mode .card ul li:hover {
   background-color: rgba(167, 119, 227, 0.1);
 }
 
-.card ul li a {
+.card ul li a, .card-link {
   text-decoration: none;
   color: #6e8efb;
   font-weight: 600;
@@ -79,7 +83,7 @@ body.dark-mode .card ul li:hover {
   position: relative;
 }
 
-.card ul li a::after {
+.card ul li a::after , .card-link::after {
   content: '';
   position: absolute;
   bottom: 0;
@@ -90,7 +94,7 @@ body.dark-mode .card ul li:hover {
   transition: width 0.3s ease;
 }
 
-.card ul li a:hover::after {
+.card ul li a:hover::after, .card-link:hover::after {
   width: 100%;
 }
 
@@ -98,16 +102,17 @@ body.dark-mode .card ul li a {
   color: #a777e3;
 }
 
-.card ul li a:hover {
+.card ul li a:hover, .card-link:hover {
   color: #2c3e50;
   transform: translateX(5px);
 }
 
-body.dark-mode .card ul li a:hover {
+body.dark-mode .card ul li a:hover,
+body.dark-mode .card-link:hover {
   color: #ffffff;
 }
 
-body.dark-mode .card ul li a::after {
+body.dark-mode .card ul li a::after, .card-link::after {
   background-color: #a777e3;
 }
 
