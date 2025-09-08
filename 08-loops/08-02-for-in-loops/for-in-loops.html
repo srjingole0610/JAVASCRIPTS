@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn about the for loop in JavaScript with detailed explanations and interactive code examples." />
+  <meta name="keywords" content="JavaScript, For Loop, Iteration, Web Development, Programming" />
+  <meta name="author" content="Suraj Ingole" />
+  <meta name="robots" content="index, follow" />
+  <meta name="og:title" content="For Loop in JavaScript" />
+  <meta name="og:description" content="Master the JavaScript for loop with interactive examples and in-depth theory." />
+  <meta name="og:type" content="website" />
+  <meta name="og:url" content="https://yourwebsite.com/04-loops/for.html" />
+  <meta name="og:image" content="https://yourwebsite.com/images/favicon.ico" />
+  <title>For In Loop in JavaScript</title>
+  <link rel="stylesheet" href="../../shared/code-output.css" />
+  <link rel="stylesheet" href="../../shared/base.css" />
+  <link rel="stylesheet" href="../../shared/page-default.css">
+  <link rel="icon" href="../images/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>🌟 For Loop in JavaScript</h1>
+      <div class="header-controls">
+        <a class="back-button" href="../index.html">← Back to Home</a>
+        <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="theory">
+      <h2>Introduction to the For Loop</h2>
+      <p>
+        In JavaScript, the <strong>for loop</strong> is used to execute a block of code repeatedly for a specified number of times. It’s ideal for iterating over arrays or performing tasks a known number of times. The syntax is:
+      </p>
+      <pre><code>for (initialization; condition; increment) {
+  // Code to execute in each iteration
+}</code></pre>
+      <p>
+        - <strong>Initialization</strong>: Executes once before the loop starts (e.g., <code>let i = 0</code>).
+        - <strong>Condition</strong>: Evaluated before each iteration; if <code>true</code>, the loop continues (e.g., <code>i < 5</code>).
+        - <strong>Increment</strong>: Executes after each iteration (e.g., <code>i++</code>).
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Basic For Loop</h3>
+      <p>Click to see the code and result of a basic <code>for</code> loop counting from 1 to 5.</p>
+      <pre><code id="basicForCode"></code></pre>
+      <button onclick="showBasicFor()">Show Basic For Loop</button>
+      <div id="basicForOutput" class="output"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Iterating Over Arrays</h2>
+      <p>
+        The <code>for</code> loop is commonly used to iterate over arrays by accessing elements via their indices. The loop’s condition often uses the array’s <code>length</code> property to determine the number of iterations.
+      </p>
+      <p>
+        Example:
+        <pre><code>const arr = ["Apple", "Banana", "Orange"];
+for (let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}</code></pre>
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Array Iteration</h3>
+      <p>Click to see the code and result of a <code>for</code> loop iterating over an array.</p>
+      <pre><code id="arrayForCode"></code></pre>
+      <button onclick="showArrayFor()">Show Array Iteration</button>
+      <div id="arrayForOutput" class="output"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Control Statements: break and continue</h2>
+      <p>
+        The <code>break</code> statement exits the loop entirely, while <code>continue</code> skips the current iteration and proceeds to the next. These are useful for controlling loop behavior based on conditions.
+      </p>
+      <p>
+        Example:
+        <pre><code>for (let i = 1; i <= 5; i++) {
+  if (i === 3) continue; // Skip 3
+  if (i === 5) break; // Exit at 5
+}</code></pre>
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Break and Continue</h3>
+      <p>Click to see the code and result of a <code>for</code> loop using <code>break</code> and <code>continue</code>.</p>
+      <pre><code id="breakContinueCode"></code></pre>
+      <button onclick="showBreakContinue()">Show Break & Continue</button>
+      <div id="breakContinueOutput" class="output"></div>
+    </section>
+
+    <section class="theory">
+      <h2>Nested For Loops and Best Practices</h2>
+      <p>
+        <strong>Nested for loops</strong> involve a loop inside another loop, often used for multi-dimensional arrays or complex iterations. However, excessive nesting can harm performance and readability.
+      </p>
+      <p>
+        <strong>Best Practices</strong>:
+        <ul>
+          <li>Keep loops simple and avoid deep nesting.</li>
+          <li>Use descriptive variable names (e.g., <code>index</code> instead of <code>i</code>).</li>
+          <li>Consider <code>forEach</code> or <code>for...of</code> for array iteration in modern JavaScript.</li>
+          <li>Ensure the condition prevents infinite loops.</li>
+        </ul>
+      </p>
+    </section>
+
+    <section class="code-example">
+      <h3>👉 Example: Nested For Loop</h3>
+      <p>Click to see the code and result of a nested <code>for</code> loop generating a multiplication table.</p>
+      <pre><code id="nestedForCode"></code></pre>
+      <button onclick="showNestedFor()">Show Nested For Loop</button>
+      <div id="nestedForOutput" class="output"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 JavaScript Full Stack Mastery. Built for learning purposes.</p>
+    </div>
+  </footer>
+  <script src="../../shared/shared.js"></script>
+  <script src="for-in-loops.js"></script>
+</body>
+</html>
