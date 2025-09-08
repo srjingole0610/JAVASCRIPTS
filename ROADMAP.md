@@ -1,4 +1,4 @@
-# 🧭 JavaScript Mastery Roadmap (In- [ ] Depth)
+# 🧭 JavaScript Mastery Roadmap (In-Depth)
 
 A comprehensive and structured roadmap to master JavaScript from beginner to expert level, including essential concepts, subtopics, and best practices.
 

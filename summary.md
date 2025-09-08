@@ -1793,10 +1793,10 @@ for (initialization; condition; increment/decrement) {
 
 #### How For Loops Works
 
-- 1.The `initialization` expression is executed once.
-- 2.The `condition` expression is evaluated.
-- 3.If the `condition` is `true`: a. The code block inside the loop is executed. b. The `increment/decrement` expression is executed. c. The process goes back to step 2 (re-evaluate the `condition`).
-- 4.If the `condition` is `false`, the loop terminates, and execution continues with the statement immediately following the `for` loop.
+- 1. The `initialization` expression is executed once.
+- 2. The `condition` expression is evaluated.
+- 3. If the `condition` is `true`: a. The code block inside the loop is executed. b. The `increment/decrement` expression is executed. c. The process goes back to step 2 (re-evaluate the `condition`).
+- 4. If the `condition` is `false`, the loop terminates, and execution continues with the statement immediately following the `for` loop.
 
 #### For Loop Examples
 
